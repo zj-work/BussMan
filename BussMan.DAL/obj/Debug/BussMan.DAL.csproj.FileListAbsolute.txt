@@ -1,0 +1,7 @@
+F:\代码\练习代码\BussMan\BussMan.DAL\bin\Debug\BussMan.DAL.dll
+F:\代码\练习代码\BussMan\BussMan.DAL\bin\Debug\BussMan.DAL.pdb
+F:\代码\练习代码\BussMan\BussMan.DAL\bin\Debug\BussMan.Model.dll
+F:\代码\练习代码\BussMan\BussMan.DAL\bin\Debug\BussMan.Model.pdb
+F:\代码\练习代码\BussMan\BussMan.DAL\obj\Debug\BussMan.DAL.csprojResolveAssemblyReference.cache
+F:\代码\练习代码\BussMan\BussMan.DAL\obj\Debug\BussMan.DAL.dll
+F:\代码\练习代码\BussMan\BussMan.DAL\obj\Debug\BussMan.DAL.pdb

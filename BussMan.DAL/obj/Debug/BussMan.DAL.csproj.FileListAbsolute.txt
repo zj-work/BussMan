@@ -5,3 +5,12 @@ F:\代码\练习代码\BussMan\BussMan.DAL\bin\Debug\BussMan.Model.pdb
 F:\代码\练习代码\BussMan\BussMan.DAL\obj\Debug\BussMan.DAL.csprojResolveAssemblyReference.cache
 F:\代码\练习代码\BussMan\BussMan.DAL\obj\Debug\BussMan.DAL.dll
 F:\代码\练习代码\BussMan\BussMan.DAL\obj\Debug\BussMan.DAL.pdb
+E:\code\企业站模板\BussMan\BussMan.DAL\bin\Debug\BussMan.DAL.dll
+E:\code\企业站模板\BussMan\BussMan.DAL\bin\Debug\BussMan.DAL.pdb
+E:\code\企业站模板\BussMan\BussMan.DAL\bin\Debug\BussMan.Model.dll
+E:\code\企业站模板\BussMan\BussMan.DAL\bin\Debug\BussMan.Model.pdb
+E:\code\企业站模板\BussMan\BussMan.DAL\obj\Debug\BussMan.DAL.csprojResolveAssemblyReference.cache
+E:\code\企业站模板\BussMan\BussMan.DAL\obj\Debug\BussMan.DAL.dll
+E:\code\企业站模板\BussMan\BussMan.DAL\obj\Debug\BussMan.DAL.pdb
+E:\code\企业站模板\BussMan\BussMan.DAL\bin\Debug\BussMan.Common.dll
+E:\code\企业站模板\BussMan\BussMan.DAL\bin\Debug\BussMan.Common.pdb

@@ -196,10 +196,15 @@
     <Compile Include="Config\BussManViewEngine.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\disp\HomeController.cs" />
+    <Compile Include="Controllers\SBaseController.cs" />
+    <Compile Include="Controllers\sys\SHomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Model\BaseModel.cs" />
+    <Compile Include="Model\disp\IndexViewModel.cs" />
+    <Compile Include="Model\sys\SIndexViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -224,8 +229,8 @@
     <Folder Include="Content\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Error\" />
+    <Folder Include="Views\SBase\" />
     <Folder Include="Views\Shared\" />
-    <Folder Include="Views\System\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -234,6 +239,7 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\Display\Home\Index.cshtml" />
+    <Content Include="Views\System\SHome\MenuConfig.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BussMan.BLL\BussMan.BLL.csproj">

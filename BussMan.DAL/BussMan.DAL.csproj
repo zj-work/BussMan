@@ -31,6 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -40,10 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBSql.cs" />
+    <Compile Include="DMenu.cs" />
     <Compile Include="DSite.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BussMan.Common\BussMan.Common.csproj">
+      <Project>{42c12917-ec90-4f7b-994e-61fdd8f3a3a8}</Project>
+      <Name>BussMan.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BussMan.Model\BussMan.Model.csproj">
       <Project>{837f8504-03d4-4d68-abce-1bf6ef1190c3}</Project>
       <Name>BussMan.Model</Name>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BussMan.Model;
+using System.Data;
 
 namespace BussMan.DAL
 {
@@ -11,7 +12,10 @@ namespace BussMan.DAL
     {
         public t_site GetSite()
         {
-            return new t_site();
+            string sql = @"select top 1 * from t_site;";
+            DataTable table = DBSql.GetTable(sql);
+            t_site res = Common.ConvertFun<t_site>.TableToItem(table);
+            return res;
         }
     }
 }

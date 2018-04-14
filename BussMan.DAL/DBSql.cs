@@ -32,7 +32,7 @@ namespace BussMan.DAL
                     }
                     conn.Close();
                 }
-            }catch { }
+            }catch(Exception ex) { }
             return table;
         }
 

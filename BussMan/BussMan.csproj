@@ -208,13 +208,78 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\icon-font.min.css" />
+    <Content Include="css\style.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\digital-7-webfont.svg" />
+    <Content Include="fonts\digital-7_italic-webfont.svg" />
+    <Content Include="fonts\digital-7_mono-webfont.svg" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\weathericons-regular-webfont.svg" />
     <Content Include="Global.asax" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <Content Include="images\1.jpg" />
+    <Content Include="images\1.png" />
+    <Content Include="images\2.png" />
+    <Content Include="images\2222.png" />
+    <Content Include="images\3.png" />
+    <Content Include="images\4.png" />
+    <Content Include="images\5.png" />
+    <Content Include="images\admin.jpg" />
+    <Content Include="images\admin1.jpg" />
+    <Content Include="images\admin2.jpg" />
+    <Content Include="images\alarm.png" />
+    <Content Include="images\business-1031754_640.jpg" />
+    <Content Include="images\clockface.png" />
+    <Content Include="images\closew.gif" />
+    <Content Include="images\cross.png" />
+    <Content Include="images\fb.png" />
+    <Content Include="images\hourhand.png" />
+    <Content Include="images\icons.png" />
+    <Content Include="images\in.jpg" />
+    <Content Include="images\in1.jpg" />
+    <Content Include="images\in10.jpg" />
+    <Content Include="images\in11.jpg" />
+    <Content Include="images\in2.jpg" />
+    <Content Include="images\in3.jpg" />
+    <Content Include="images\in4.jpg" />
+    <Content Include="images\in5.jpg" />
+    <Content Include="images\in6.jpg" />
+    <Content Include="images\in7.jpg" />
+    <Content Include="images\in8.jpg" />
+    <Content Include="images\in9.jpg" />
+    <Content Include="images\leftw.gif" />
+    <Content Include="images\minhand.png" />
+    <Content Include="images\p1.jpg" />
+    <Content Include="images\p2.jpg" />
+    <Content Include="images\p3.jpg" />
+    <Content Include="images\p4.jpg" />
+    <Content Include="images\p5.jpg" />
+    <Content Include="images\p6.jpg" />
+    <Content Include="images\pic3.jpg" />
+    <Content Include="images\rightw.gif" />
+    <Content Include="images\right_arrow.png" />
+    <Content Include="images\search.png" />
+    <Content Include="images\search2.png" />
+    <Content Include="images\sechand.png" />
+    <Content Include="images\social.png" />
+    <Content Include="images\speed.png" />
+    <Content Include="images\sublogo.png" />
+    <Content Include="images\tick1.png" />
+    <Content Include="images\time.png" />
+    <Content Include="images\timer.png" />
+    <Content Include="images\tw.png" />
+    <Content Include="images\watch.png" />
+    <Content Include="scripts\bootstrap.min.js" />
+    <Content Include="scripts\jquery-1.10.2.min.js" />
+    <Content Include="scripts\jquery.nicescroll.js" />
+    <Content Include="scripts\layout.js" />
+    <Content Include="scripts\scripts.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -227,9 +292,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\" />
-    <Folder Include="Views\Base\" />
     <Folder Include="Views\Error\" />
-    <Folder Include="Views\SBase\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
@@ -237,8 +300,26 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
+    <Content Include="fonts\digital-7-webfont.eot" />
+    <Content Include="fonts\digital-7-webfont.ttf" />
+    <Content Include="fonts\digital-7-webfont.woff" />
+    <Content Include="fonts\digital-7_italic-webfont.eot" />
+    <Content Include="fonts\digital-7_italic-webfont.ttf" />
+    <Content Include="fonts\digital-7_italic-webfont.woff" />
+    <Content Include="fonts\digital-7_mono-webfont.eot" />
+    <Content Include="fonts\digital-7_mono-webfont.ttf" />
+    <Content Include="fonts\digital-7_mono-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\weathericons-regular-webfont.eot" />
+    <Content Include="fonts\weathericons-regular-webfont.ttf" />
+    <Content Include="fonts\weathericons-regular-webfont.woff" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\Display\Home\Index.cshtml" />
+    <Content Include="Views\System\_LayoutSystem.cshtml" />
     <Content Include="Views\System\SHome\MenuConfig.cshtml" />
   </ItemGroup>
   <ItemGroup>

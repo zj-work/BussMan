@@ -9,6 +9,10 @@ namespace BussMan.Controllers
 {
     public class SHomeController : SBaseController<SIndexViewModel>
     {
+        public SHomeController()
+        {
+            
+        }
         // GET: SHome
         public ActionResult Index()
         {
@@ -25,7 +29,13 @@ namespace BussMan.Controllers
         /// <returns></returns>
         public ActionResult MenuConfig()
         {
-            return View();
+            ViewBag.title = pageModel.SiteInfo == null ? "菜单配置" : pageModel.SiteInfo.name + "-菜单配置";
+            return View(pageModel);
+        }
+
+        public ActionResult SaveMenu()
+        {
+            return null;
         }
     }
 }

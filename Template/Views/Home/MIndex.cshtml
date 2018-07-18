@@ -1,0 +1,21 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Template.Models.IndexModel
+
+@if (!Template.Common.CommonFun.IsEmpty(Model.menu_List) && Model.menu_List.Count > 0)
+{
+    foreach (var item in Model.menu_List)
+    {
+        <a href="@item.Key.Url" data-target="@item.Key.IsOpen">@item.Key.Text</a>
+        if (item.Key.IsOpen)
+        {
+            foreach (var temp in item.Value)
+            {
+                <a href="@temp.Url">@temp.Text</a>
+            }
+        }
+        <br />
+    }
+}
+

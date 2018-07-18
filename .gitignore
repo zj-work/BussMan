@@ -1,8 +1,0 @@
-# Windows:
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-# My configurations:
-packages/
-*.mdf
-*.ldf

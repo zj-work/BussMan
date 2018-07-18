@@ -1,8 +1,0 @@
-F:\代码\练习代码\BussMan\BussMan.Model\bin\Debug\BussMan.Model.dll
-F:\代码\练习代码\BussMan\BussMan.Model\bin\Debug\BussMan.Model.pdb
-F:\代码\练习代码\BussMan\BussMan.Model\obj\Debug\BussMan.Model.dll
-F:\代码\练习代码\BussMan\BussMan.Model\obj\Debug\BussMan.Model.pdb
-E:\code\企业站模板\BussMan\BussMan.Model\bin\Debug\BussMan.Model.dll
-E:\code\企业站模板\BussMan\BussMan.Model\bin\Debug\BussMan.Model.pdb
-E:\code\企业站模板\BussMan\BussMan.Model\obj\Debug\BussMan.Model.dll
-E:\code\企业站模板\BussMan\BussMan.Model\obj\Debug\BussMan.Model.pdb

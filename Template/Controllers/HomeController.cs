@@ -22,6 +22,7 @@ namespace Template.Controllers
         public ActionResult MIndex()
         {
             ReadMenu();
+            model.currentMenu = 1;
             return View(model);
         }
     }

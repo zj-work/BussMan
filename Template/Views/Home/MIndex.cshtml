@@ -2,20 +2,202 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model Template.Models.IndexModel
-
-@if (!Template.Common.CommonFun.IsEmpty(Model.menu_List) && Model.menu_List.Count > 0)
-{
-    foreach (var item in Model.menu_List)
-    {
-        <a href="@item.Key.Url" data-target="@item.Key.IsOpen">@item.Key.Text</a>
-        if (item.Key.IsOpen)
-        {
-            foreach (var temp in item.Value)
-            {
-                <a href="@temp.Url">@temp.Text</a>
-            }
-        }
-        <br />
-    }
+@section head{
+    <link rel="stylesheet" href="~/Content/css/webuploader.css" />
 }
+
+<div class="page-header">
+    <h1>基本信息</h1>
+</div>
+
+<div class="content-wrap">
+    <div class="mainCon">
+        <div class="infoLi">
+            <span class="infoLiTit">公司名称</span>
+            <input id="" placeholder="请填写公司名字" type="text" value="" />
+        </div>
+        <div class="infoLi">
+            <span class="infoLiTit">banner轮播图</span>
+            <div class="infoPic">
+                <ul class="bannerImg clearfix">
+                    <li>
+                        <img src="~/Content/assets/images/exImg.jpg" />
+                        <div class="webuploader-pick picker" onclick="up_click(this)">上传</div>
+                    </li>
+                    <li>
+                        <img src="~/Content/assets/images/exImg.jpg" />
+                        <div class="webuploader-pick picker" onclick="up_click(this)">上传</div>
+                    </li>
+                    <li>
+                        <img src="~/Content/assets/images/exImg.jpg" />
+                        <div class="webuploader-pick picker" onclick="up_click(this)">上传</div>
+                    </li>
+                </ul>
+                <p class="proposalpP">建议尺寸 1920 * 500 (像素)的图片。大小不超过2M，格式jpg/png/jpeg 如果无法正常显示新上传图片，清空浏览器缓存后访问。</p>
+            </div>
+        </div>
+        <div class="infoLi">
+            <span class="infoLiTit">公司简介</span>
+            <!--编辑器 S-->
+            <div class="txtEdit fl">
+                <div id="standalone-container">
+                    <div id="toolbar-container">
+                        <span class="ql-formats">
+                            <select class="ql-font"></select>
+                            <select class="ql-size"></select>
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-bold"></button>
+                            <button class="ql-italic"></button>
+                            <button class="ql-underline"></button>
+                            <button class="ql-strike"></button>
+                        </span>
+                        <span class="ql-formats">
+                            <select class="ql-color"></select>
+                            <select class="ql-background"></select>
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-script" value="sub"></button>
+                            <button class="ql-script" value="super"></button>
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-header" value="1"></button>
+                            <button class="ql-header" value="2"></button>
+                            <button class="ql-blockquote"></button>
+                            <button class="ql-code-block"></button>
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-list" value="ordered"></button>
+                            <button class="ql-list" value="bullet"></button>
+                            <button class="ql-indent" value="-1"></button>
+                            <button class="ql-indent" value="+1"></button>
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-direction" value="rtl"></button>
+                            <select class="ql-align"></select>
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-link"></button>
+                            <button class="ql-image"></button>
+                            <button class="ql-video"></button>
+                            <button class="ql-formula"></button>
+                        </span>
+                        <span class="ql-formats">
+                            <button class="ql-clean"></button>
+                        </span>
+                    </div>
+                    <div id="editor-container"></div>
+                </div>
+            </div>
+            <!--编辑器 E-->
+        </div>
+        <div class="infoLi">
+            <span class="infoLiTit">公司地址</span>
+            <input id="" placeholder="" type="text" value="" />
+        </div>
+        <div class="infoLi">
+            <span class="infoLiTit">邮编</span>
+            <input id="" placeholder="" type="text" value="" class="infoLiIpt2" />
+        </div>
+        <div class="infoLi">
+            <span class="infoLiTit">联系人</span>
+            <input id="" placeholder="" type="text" value="" class="infoLiIpt2" />
+        </div>
+        <div class="infoLi">
+            <span class="infoLiTit">电话</span>
+            <input id="" placeholder="" type="text" value="" class="infoLiIpt2" />
+        </div>
+        <div class="infoLi">
+            <span class="infoLiTit">手机</span>
+            <input id="" placeholder="" type="text" value="" class="infoLiIpt2" />
+        </div>
+        <div class="infoLi">
+            <span class="infoLiTit">邮箱</span>
+            <input id="" placeholder="" type="text" value="" class="infoLiIpt2" />
+        </div>
+        <div class="infoLi">
+            <span class="infoLiTit">在线QQ</span>
+            <input id="" placeholder="" type="text" value="" class="infoLiIpt2" />
+        </div>
+        <div class="infoLi">
+            <span class="infoLiTit">微信公众号</span>
+            <div class="infoPic">
+                <ul class="ewmImg clearfix">
+                    <li>
+                        <img src="~/Content/assets/images/exImg.jpg" />
+                        <div class="webuploader-pick picker" onclick="up_click(this)">上传</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="infoLi">
+            <span class="infoLiTit">ICP备案信息</span>
+            <input id="" placeholder="" type="text" value="" class="infoLiIpt2" />
+        </div>
+
+        <div class="submitBox">
+            <input type="button" value="保存" id="submitBtn" class="submitBtn" />
+        </div>
+
+    </div>
+</div>
+
+@section script
+{
+    <script type="text/javascript">
+        var currentUp = {};
+        //上传图片 点击事件
+        function up_click(e) {
+            currentUp = e;
+        }
+    </script>
+    <!--富文本框编辑-->
+    <script type="text/javascript">
+        var quill = new Quill('#editor-container', {
+            modules: {
+                formula: true,
+                syntax: true,
+                toolbar: '#toolbar-container'
+            },
+            theme: 'snow'
+        });
+    </script>
+    <!--图片上传-->
+    <script type="text/javascript">
+        var uploader = WebUploader.create({
+            auto: true,
+            swf: '../Content/script/Uploader.swf',
+            server: 'Util/Upload',
+            pick: '.picker',
+            resize: false,
+            compress: false,
+            duplicate: true,
+            accept: {
+                title: 'Images',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/*'
+            },
+            disableGlobalDnd: true
+        });
+
+        uploader.on('fileQueued', function (file) {
+            
+        });
+
+        uploader.on('uploadSuccess', function (file,res) {
+            //显示图片
+            if (res.state == 1) {
+                var img = $(currentUp).prev('img');
+                $(img).attr('src', res.path);
+            } else {
+                alert("上传图片失败");
+            }
+        });
+
+        uploader.on('uploadError', function (file) {
+        });
+    </script>
+}
+
+
 

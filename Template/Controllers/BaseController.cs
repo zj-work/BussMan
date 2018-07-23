@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -85,6 +86,24 @@ namespace Template.Controllers
             }
             #endregion
 
+        }
+
+        /// <summary>
+        /// 获取图片路径
+        /// </summary>
+        /// <returns></returns>
+        public string GetFilePath()
+        {
+            string path = string.Empty;
+            try
+            {
+                path = ConfigurationManager.AppSettings["imgpath"].ToString();
+            }
+            catch
+            {
+                path = "";
+            }
+            return path;
         }
     }
 }

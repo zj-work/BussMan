@@ -7,7 +7,9 @@ namespace Template.Models
 {
     public class BaseModel
     {
-        public Dictionary<MenuItem,List<MenuItem>> menu_List { get; set; } 
+        public Dictionary<MenuItem,List<MenuItem>> menu_List { get; set; }
+        
+        public int currentMenu { get; set; }
     }
 
 }

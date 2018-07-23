@@ -16,6 +16,8 @@ namespace Template
             routes.MapRoute("登录", "login", new { controller = "User", action = "Login" });
             routes.MapRoute("首页", "sys/index", new { controller = "Home", action = "MIndex" });
 
+            routes.MapRoute("图片上传", "upload", new { controller = "Util", action = "Upload" });
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

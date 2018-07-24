@@ -2,22 +2,22 @@
 
 <Root>
   <Menu Type="Admin">
-    <ChildMenu Text="基本信息" Icon="" IsOpen="False" Url="sys/Info"></ChildMenu>
+    <ChildMenu Text="基本信息" Icon="" IsOpen="False" Url="/sys/Info"></ChildMenu>
     <ChildMenu Text="项目管理" Icon="" IsOpen="True" Url="">
-      <Item Text="创业梦工厂" Url="sys/Coin" Icon="" IsOpen="False"></Item>
-      <Item Text="央视广告" Url="sys/Advert" Icon="" IsOpen="False"></Item>
-      <Item Text="主流媒体宣传" Url="sys/Media" Icon="" IsOpen="False"></Item>
-      <Item Text="中央观众赠票" Url="sys/Center" Icon="" IsOpen="False"></Item>
-      <Item Text="高端会议" Url="sys/Meeting" Icon="" IsOpen="False"></Item>
+      <Item Text="创业梦工厂" Url="/sys/Coin" Icon="" IsOpen="False"></Item>
+      <Item Text="央视广告" Url="/sys/Advert" Icon="" IsOpen="False"></Item>
+      <Item Text="主流媒体宣传" Url="/sys/Media" Icon="" IsOpen="False"></Item>
+      <Item Text="中央观众赠票" Url="/sys/Center" Icon="" IsOpen="False"></Item>
+      <Item Text="高端会议" Url="/sys/Meeting" Icon="" IsOpen="False"></Item>
     </ChildMenu>
-    <ChildMenu Text="员工管理" Icon="" IsOpen="False" Url="sys/Staff"></ChildMenu>
-    <ChildMenu Text="客户管理" Icon="" IsOpen="False" Url="sys/Customer"></ChildMenu>
-    <ChildMenu Text="好友列表" Icon="" IsOpen="False" Url="sys/Friend"></ChildMenu>
-    <ChildMenu Text="商务合作管理" Icon="" IsOpen="False" Url="sys/Affair"></ChildMenu>
-    <ChildMenu Text="加入我们" Icon="" IsOpen="False" Url="sys/Join"></ChildMenu>
+    <ChildMenu Text="员工管理" Icon="" IsOpen="False" Url="/sys/Staff"></ChildMenu>
+    <ChildMenu Text="客户管理" Icon="" IsOpen="False" Url="/sys/Customer"></ChildMenu>
+    <ChildMenu Text="好友列表" Icon="" IsOpen="False" Url="/sys/Friend"></ChildMenu>
+    <ChildMenu Text="商务合作管理" Icon="" IsOpen="False" Url="/sys/Affair"></ChildMenu>
+    <ChildMenu Text="加入我们" Icon="" IsOpen="False" Url="/sys/Join"></ChildMenu>
   </Menu>
   <Menu Type="General">
-    <ChildMenu Text="我的二维码" Icon="" IsOpen="False" Url="sys/QR"></ChildMenu>
-    <ChildMenu Text="我的客户管理" Icon="" IsOpen="False" Url="sys/Client"></ChildMenu>
+    <ChildMenu Text="我的二维码" Icon="" IsOpen="False" Url="/sys/QR"></ChildMenu>
+    <ChildMenu Text="我的客户管理" Icon="" IsOpen="False" Url="/sys/Client"></ChildMenu>
   </Menu>
 </Root>

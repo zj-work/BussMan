@@ -8,13 +8,8 @@ using Template.Models;
 
 namespace Template.Controllers
 {
-    public class HomeController : BaseController
+    public class HomeController : BaseController<IndexModel>
     {
-        
-        public HomeController()
-        {
-            model = new IndexModel();
-        }
         /// <summary>
         /// 管理系统后台-首页
         /// </summary>
@@ -22,8 +17,8 @@ namespace Template.Controllers
         public ActionResult MIndex()
         {
             ReadMenu();
-            model.currentMenu = 1;
-            return View(model);
+            pageModel.currentMenu = 1;
+            return View(pageModel);
         }
     }
 }

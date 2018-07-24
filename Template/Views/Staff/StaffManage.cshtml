@@ -1,0 +1,147 @@
+﻿
+@{
+    ViewBag.Title = "StaffManage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="page-header">
+    <h1>员工管理</h1>
+</div>
+
+<div class="content-wrap">
+    <div class="mainCon padding20">
+        <!--搜索条件 S-->
+        <div class="searchBar clearfix">
+            <div class="fl marginRight20">
+                <input type="text" class="dateInput" placeholder="请选择日期范围" id="test6">
+            </div>
+
+            <div class="fl marginRight20">
+                <input type="text" class="srhInput" placeholder="输入员工姓名">
+
+            </div><div class="fl">
+                <input type="text" class="srhInput marginRight20" placeholder="输入员工联系方式">
+                <input type="button" class="submitBtn" value="搜索">
+            </div>
+        </div>
+        <!--搜索条件 E-->
+        <!--操作按钮 S-->
+        <div class="handle">
+            <a href="javascript:;" onclick="" class="btn btn-danger radius">批量删除</a>
+            <a class="btn btn-primary radius" data-toggle="modal" data-target="#addCursor">添加员工</a>
+        </div>
+        <!--操作按钮 E-->
+        <!--客户列表 S-->
+        <table class="tableList">
+            <tr>
+                <th></th>
+                <th>员工姓名</th>
+                <th>手机</th>
+                <th>所在地区</th>
+                <th>用户名</th>
+                <th>登录密码</th>
+                <th>添加时间</th>
+                <th>修改</th>
+                <th>删除</th>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="inlineCheckbox1" value="option1" /></td>
+                <td>张三</td>
+                <td>15200010002</td>
+                <td>北京市 海淀区</td>
+                <td>admin1</td>
+                <td>123456</td>
+                <td>2018-06-01 11:11:42</td>
+                <td><a class="deletIcon" onclick=""><img src="~/Content/assets/images/reviseIcon.png" alt="修改"></a></td>
+                <td><a class="deletIcon" onclick=""><img src="~/Content/assets/images/deletIcon.png" alt="删除"></a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="inlineCheckbox1" value="option1" /></td>
+                <td>张三</td>
+                <td>15200010002</td>
+                <td>北京市 海淀区</td>
+                <td>admin1</td>
+                <td>123456</td>
+                <td>2018-06-01 11:11:42</td>
+                <td><a class="deletIcon" onclick=""><img src="~/Content/assets/images/reviseIcon.png" alt="修改"></a></td>
+                <td><a class="deletIcon" onclick=""><img src="~/Content/assets/images/deletIcon.png" alt="删除"></a></td>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="inlineCheckbox1" value="option1" /></td>
+                <td>张三</td>
+                <td>15200010002</td>
+                <td>北京市 海淀区</td>
+                <td>admin1</td>
+                <td>123456</td>
+                <td>2018-06-01 11:11:42</td>
+                <td><a class="deletIcon" onclick=""><img src="~/Content/assets/images/reviseIcon.png" alt="修改"></a></td>
+                <td><a class="deletIcon" onclick=""><img src="~/Content/assets/images/deletIcon.png" alt="删除"></a></td>
+            </tr>
+        </table>
+        <!--客户列表 E-->
+        <!--分页 S-->
+        <div class="pageAnger">
+            <ul class="pagination clearfix">
+                <li class="paginate_button previous disabled" id="DataTables_Table_0_previous"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0">首页</a></li>
+                <li class="paginate_button active"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0">1</a></li>
+                <li class="paginate_button "><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0">2</a></li>
+                <li class="paginate_button "><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="3" tabindex="0">3</a></li>
+                <li class="paginate_button next" id="DataTables_Table_0_next"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="7" tabindex="0">尾页</a></li>
+            </ul>
+        </div>
+        <!--分页 E-->
+
+    </div>
+</div>
+
+
+<!--添加员工 S-->
+<div class="modal fade" id="addCursor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog width800" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>添加员工账号</span>
+                <a class="modal-headerBtn" data-dismiss="modal">×</a>
+            </div>
+            <div class="modal-body clearfix">
+                <div class="fl">
+                    <div class="infoLi">
+                        <span class="infoLiTit">员工姓名</span>
+                        <input id="" placeholder="" type="text" value="" class="infoLiIpt2" />
+                    </div>
+                    <div class="infoLi">
+                        <span class="infoLiTit">电话</span>
+                        <input id="" placeholder="" type="text" value="" class="infoLiIpt2" />
+                    </div>
+                    <div class="infoLi">
+                        <span class="infoLiTit">所在地区</span>
+                        <input id="" placeholder="" type="text" value="" class="infoLiIpt2" />
+                    </div>
+                    <div class="infoLi">
+                        <span class="infoLiTit">账号/用户名</span>
+                        <input id="" placeholder="" type="text" value="" class="infoLiIpt2" />
+                    </div>
+                    <div class="infoLi">
+                        <span class="infoLiTit">登录密码</span>
+                        <input id="" placeholder="" type="text" value="" class="infoLiIpt2" />
+                    </div>
+                    <div class="submitBox2">
+                        <input type="button" value="确认添加" id="submitBtn" class="submitBtn" />
+                        <!--不可操作 灰色-->
+                        <input type="button" value="确认添加" id="submitBtn" class="submitBtnGray" style="display:none;" />
+                    </div>
+                </div>
+
+                <div class="fl modal-bodyRight">
+                    <div class="ewmImg"><img src="~/Content/assets/images/ewmDefault.gif"></div>
+                    <p>确认添加信息<br>此处生成员工专属二维码</p>
+                    <input type="button" value="下载" id="submitBtn" class="submitBtn" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--添加员工 E-->

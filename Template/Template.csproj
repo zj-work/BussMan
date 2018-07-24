@@ -122,8 +122,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\Diaplay\IndexController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ProjectController.cs" />
+    <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\UtilController.cs" />
     <Compile Include="Filter\MemberAttribute.cs" />
@@ -131,8 +134,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\IndexModel.cs" />
     <Compile Include="Models\MenuItem.cs" />
+    <Compile Include="Models\ProjModel.cs" />
+    <Compile Include="Models\StaffModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -742,6 +748,7 @@
     <Content Include="Content\assets\plugins\year-calendar\js\languages\bootstrap-year-calendar.pt.js" />
     <Content Include="Content\assets\plugins\year-calendar\js\languages\bootstrap-year-calendar.ru.js" />
     <Content Include="Content\assets\plugins\year-calendar\js\languages\bootstrap-year-calendar.tr.js" />
+    <Content Include="Content\css\wangEditor.min.css" />
     <Content Include="Content\css\webuploader.css" />
     <Content Include="Content\dist\highlight.min.js" />
     <Content Include="Content\dist\katex.min.js" />
@@ -750,6 +757,7 @@
     <Content Include="Content\script\jquery-1.8.3.min.js" />
     <Content Include="Content\script\Uploader.swf" />
     <Content Include="Content\script\Util.js" />
+    <Content Include="Content\script\wangEditor.min.js" />
     <Content Include="Content\script\webuploader.nolog.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -862,6 +870,18 @@
     <Content Include="Content\assets\plugins\trumbowyg\plugins\colors\ui\sass\trumbowyg.colors.scss" />
     <Content Include="Content\assets\plugins\validation\.DS_Store" />
     <Content Include="Content\assets\plugins\year-calendar\.DS_Store" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Project\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Staff\StaffManage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Customer\CustomerManage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Customer\FriendManage.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

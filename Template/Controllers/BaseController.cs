@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 using System.Web.Mvc;
 using System.Xml;
@@ -12,13 +13,13 @@ using Template.Models;
 namespace Template.Controllers
 {
     [MemberAuthorize]
-    public class BaseController : Controller
+    public class BaseController<T> : Controller where T :class, new()
     {
         private string Menu_Path = AppDomain.CurrentDomain.BaseDirectory + "Menu.xml";
 
         private UserBLL _user = new UserBLL();
 
-        public BaseModel model;
+        public T pageModel = new T();
 
         /// <summary>
         /// 根据登录用户的权限，加载菜单
@@ -80,7 +81,12 @@ namespace Template.Controllers
                             }
                             dic.Add(child, items);
                         }
-                        model.menu_List = dic;
+
+                        PropertyInfo pinfo = pageModel.GetType().GetProperty("menu_List");
+                        if (pinfo != null)
+                        {
+                            pinfo.SetValue(pageModel, dic);
+                        }
                     }
                 }
             }

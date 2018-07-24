@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Template.Models.ProjModel
+
+
+<div class="page-header">
+    <h1>@Model.pageTitle</h1>
+</div>
+
+<div class="content-wrap">
+    <div class="mainCon">
+        <div class="infoLi">
+            <span class="infoLiTit">项目标题</span>
+            <input id="" placeholder="" type="text" value="@Model.projTitle" />
+        </div>
+        <div class="infoLi">
+            <span class="infoLiTit">项目内容</span>
+            <!--编辑器 S-->
+            <div class="txtEdit fl" id="info">
+                @Html.Raw(Model.projContent)
+            </div>
+            <textarea id="comInfo" style="display:none;"></textarea>
+            <!--编辑器 E-->
+        </div>
+
+
+        <div class="submitBox">
+            <input type="button" value="保存" id="submitBtn" class="submitBtn" onclick="save()" />
+            <input type="button" value="取消" id="" class="cancelBtn" />
+        </div>
+
+    </div>
+</div>
+
+@section script{
+    <!--富文本框编辑-->
+    <script type="text/javascript">
+        var E = window.wangEditor;
+        var editor = new E('#info');
+        var $text1 = $('#comInfo');
+        editor.customConfig.uploadImgServer = '/Util/EditorUpload';
+        editor.customConfig.uploadImgHooks = {
+            customInsert: function (insertImg, result, editor) {
+                if (result.state == 1) {
+                    var url = result.path;
+                    insertImg(url);
+                } else {
+                    alert("插入图片失败");
+                }
+            }
+        };
+        editor.customConfig.onchange = function (html) {
+            $text1.val(html);
+        }
+        editor.create();
+        $text1.val(editor.txt.html());
+    </script>
+
+    <script type="text/javascript">
+        function save() {
+            alert($('#comInfo').val());
+        }
+    </script>
+}
+

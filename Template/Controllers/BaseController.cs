@@ -24,7 +24,7 @@ namespace Template.Controllers
         /// <summary>
         /// 根据登录用户的权限，加载菜单
         /// </summary>
-        protected void ReadMenu()
+        protected void Init()
         {
             string cust_kind = string.Empty;
             #region 获取用户类型
@@ -90,6 +90,21 @@ namespace Template.Controllers
                     }
                 }
             }
+            #endregion
+
+            #region 设置登录用户的信息
+
+            try
+            {
+                t_user user = Session["UserInfo"] as t_user;
+                PropertyInfo pinfo = pageModel.GetType().GetProperty("loginName");
+                if (pinfo != null)
+                {
+                    pinfo.SetValue(pageModel, user.Cust_Name);
+                }
+            }
+            catch { }
+
             #endregion
 
         }

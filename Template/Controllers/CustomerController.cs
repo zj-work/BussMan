@@ -15,14 +15,14 @@ namespace Template.Controllers
             if(kind == "all")
             {
                 //客户管理
-                ReadMenu();
+                Init();
                 pageModel.currentMenu = 4;
                 return View("CustomerManage",pageModel);
             }
             else
             {
                 //好友列表
-                ReadMenu();
+                Init();
                 pageModel.currentMenu = 5;
                 return View("FriendManage", pageModel);
             }

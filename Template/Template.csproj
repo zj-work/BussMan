@@ -122,9 +122,11 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\CooperateController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\Diaplay\IndexController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JoinUsController.cs" />
     <Compile Include="Controllers\ProjectController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -134,8 +136,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\CooperModel.cs" />
     <Compile Include="Models\CustomerModel.cs" />
     <Compile Include="Models\IndexModel.cs" />
+    <Compile Include="Models\JoinUsModel.cs" />
     <Compile Include="Models\MenuItem.cs" />
     <Compile Include="Models\ProjModel.cs" />
     <Compile Include="Models\StaffModel.cs" />
@@ -882,6 +886,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Customer\FriendManage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\JoinUs\JoinUsManage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Cooperate\CooperManage.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

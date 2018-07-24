@@ -12,7 +12,7 @@ namespace Template.Controllers
         // GET: Project
         public ActionResult Index(string kind)
         {
-            ReadMenu();
+            Init();
             pageModel.currentMenu = 2;
             switch(kind)
             {

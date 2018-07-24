@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewBag.Title = "JoinUsManage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="page-header">
+    <h1>加入我们</h1>
+</div>
+
+<div class="content-wrap">
+    <div class="mainCon">
+        <div class="infoLi">
+            <span class="infoLiTit">加入条件</span>
+            <!--编辑器 S-->
+            <div class="txtEdit fl" id="join_condition"></div>
+            <textarea id="join_condition_Info" style="display:none"></textarea>
+            <!--编辑器 E-->
+        </div>
+        <div class="infoLi">
+            <span class="infoLiTit">加入任务</span>
+            <!--编辑器 S-->
+            <div class="txtEdit fl" id="join_task"></div>
+            <textarea id="join_task_Info" style="display:none"></textarea>
+            <!--编辑器 E-->
+        </div>
+        <div class="infoLi">
+            <span class="infoLiTit">退出机制</span>
+            <!--编辑器 S-->
+            <div class="txtEdit fl" id="join_exit"></div>
+            <textarea id="join_exit_Info" style="display:none"></textarea>
+            <!--编辑器 E-->
+        </div>
+        <div class="submitBox">
+            <input type="button" value="保存" id="submitBtn" class="submitBtn" />
+            <input type="button" value="取消" id="" class="cancelBtn" />
+        </div>
+    </div>
+</div>
+
+@section script{
+    <!--富文本编辑框 S-->
+    <script type="text/javascript">
+        var E = window.wangEditor;
+        var editor = new E('#join_condition');
+        var $text1 = $('#join_condition_Info');
+        editor.customConfig.uploadImgServer = '/Util/EditorUpload';
+        editor.customConfig.uploadImgHooks = {
+            customInsert: function (insertImg, result, editor) {
+                if (result.state == 1) {
+                    var url = result.path;
+                    insertImg(url);
+                } else {
+                    alert("插入图片失败");
+                }
+            }
+        }
+        editor.customConfig.onchange = function (html) {
+            $text1.val(html);
+        }
+        editor.create();
+        $text1.val(editor.txt.html());
+
+        var editor2 = new E('#join_task');
+        var $text2 = $('#join_task_Info');
+        editor2.customConfig.uploadImgServer = '/Util/EditorUpload';
+        editor2.customConfig.uploadImgHooks = {
+            customInsert: function (insertImg, result, editor) {
+                if (result.state == 1) {
+                    var url = result.path;
+                    insertImg(url);
+                } else {
+                    alert("插入图片失败");
+                }
+            }
+        }
+        editor2.customConfig.onchange = function (html) {
+            $text2.val(html);
+        }
+        editor2.create();
+        $text2.val(editor2.txt.html());
+
+        var editor3 = new E('#join_exit');
+        var $text3 = $('#join_exit_Info');
+        editor3.customConfig.uploadImgServer = '/Util/EditorUpload';
+        editor3.customConfig.uploadImgHooks = {
+            customInsert: function (insertImg, result, editor) {
+                if (result.state == 1) {
+                    var url = result.path;
+                    insertImg(url);
+                } else {
+                    alert("插入图片失败");
+                }
+            }
+        }
+        editor3.customConfig.onchange = function (html) {
+            $text3.val(html);
+        }
+        editor3.create();
+        $text3.val(editor3.txt.html());
+
+    </script>
+    <!--富文本编辑框 E-->
+}

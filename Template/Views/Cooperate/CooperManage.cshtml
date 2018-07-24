@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "CooperManage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="page-header">
+    <h1>商务合作管理</h1>
+</div>
+
+<div class="content-wrap">
+    <div class="mainCon padding20">
+        <!--操作按钮 S-->
+        <div class="handle">
+            <a href="javascript:;" onclick="" class="btn btn-danger radius">批量删除</a>
+            <a class="btn btn-primary radius" data-toggle="modal" data-target="#addCursor">添加商务合作</a>
+        </div>
+        <!--操作按钮 E-->
+        <!--客户列表 S-->
+        <table class="tableList">
+            <tr>
+                <th width="2%"></th>
+                <th width="10%">合作客户名称</th>
+                <th width="12%">客户logo</th>
+                <th width="30%">客户简介</th>
+                <th width="8%">添加时间</th>
+                <th width="5%">修改</th>
+                <th width="5%">删除</th>
+            </tr>
+            <tr>
+                <td><input type="checkbox" id="inlineCheckbox1" value="option1" /></td>
+                <td>张三</td>
+                <td><img src="~/Content/assets/images/defaultLoge.png" alt="中国物通网"></td>
+                <td>中国物通网(www.chinawutong.com)是北京物通时空网络科技开发有限公司旗下物流行业网站，是国内以企业多元化物品流通需求为中心，系统整合物流企业、运输车辆、国际海运……</td>
+                <td>2018-06-28 09:56</td>
+                <td><a class="deletIcon" onclick=""><img src="~/Content/assets/images/reviseIcon.png" alt="修改"></a></td>
+                <td><a class="deletIcon" onclick=""><img src="~/Content/assets/images/deletIcon.png" alt="删除"></a></td>
+            </tr>
+        </table>
+        <!--客户列表 E-->
+        <!--分页 S-->
+        <div class="pageAnger">
+            <ul class="pagination clearfix">
+                <li class="paginate_button previous disabled" id="DataTables_Table_0_previous"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0">首页</a></li>
+                <li class="paginate_button active"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0">1</a></li>
+                <li class="paginate_button "><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0">2</a></li>
+                <li class="paginate_button "><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="3" tabindex="0">3</a></li>
+                <li class="paginate_button next" id="DataTables_Table_0_next"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="7" tabindex="0">尾页</a></li>
+            </ul>
+        </div>
+        <!--分页 E-->
+
+    </div>
+</div>
+
+
+<!--添加客户 S-->
+<div class="modal fade" id="addCursor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>添加商务合作</span>
+                <a class="modal-headerBtn" data-dismiss="modal">×</a>
+            </div>
+            <div class="modal-body">
+                <div class="infoLi">
+                    <span class="infoLiTit">客户名称</span>
+                    <input id="" placeholder="" type="text" value="" class="infoLiIpt2" />
+                </div>
+                <div class="infoLi">
+                    <span class="infoLiTit">添加logo</span>
+                    <a class="infoLiImg"><img src="~/Content/assets/images/defaultLoge.png"></a>
+                    <span style="color:#999; font-size:12px; position:absolute; top:70px;">（建议logo尺寸280*80px）</span>
+                </div>
+                <div class="infoLi">
+                    <span class="infoLiTit">客户简介</span>
+                    <textarea name="" class="infoLiTxt" value="" rows="3"></textarea>
+                </div>
+                <div class="submitBox2">
+                    <input type="button" value="确认添加" id="submitBtn" class="submitBtn" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--添加客户 E-->

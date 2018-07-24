@@ -11,7 +11,7 @@ namespace Template.Controllers
     {
         public ActionResult StaffManage()
         {
-            ReadMenu();
+            Init();
             pageModel.currentMenu = 3;
             return View(pageModel);
         }

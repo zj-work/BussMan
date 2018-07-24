@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseBLL.cs" />
+    <Compile Include="ComBLL.cs" />
+    <Compile Include="PicBLL.cs" />
     <Compile Include="UserBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

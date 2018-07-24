@@ -10,6 +10,8 @@ namespace Template.Models
         public Dictionary<MenuItem,List<MenuItem>> menu_List { get; set; }
         
         public int currentMenu { get; set; }
+
+        public string loginName { get; set; }
     }
 
 }

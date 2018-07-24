@@ -24,6 +24,8 @@ namespace Template
             routes.MapRoute("员工管理", "sys/Staff", new { controller = "Staff", action = "StaffManage" });
             routes.MapRoute("客户管理", "sys/Customer", new { controller = "Customer", action = "CustomerManage",kind="all" });
             routes.MapRoute("好友管理", "sys/Friend", new { controller = "Customer", action = "CustomerManage", kind = "friend" });
+            routes.MapRoute("加入我们", "sys/Join", new { controller = "JoinUs", action = "JoinUsManage" });
+            routes.MapRoute("商务合作", "sys/Affair", new { controller = "Cooperate", action = "CooperManage" });
 
             routes.MapRoute("图片上传", "upload", new { controller = "Util", action = "Upload" });
 

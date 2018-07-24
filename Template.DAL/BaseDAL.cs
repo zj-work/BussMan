@@ -133,6 +133,7 @@ namespace Template.DAL
                                 sb.Append("@" + pname + ",");
                             }
                         }
+                        sb.Remove(sb.Length - 1, 1);
                         sb.Append(")");
                         res = sb.ToString();
                     }

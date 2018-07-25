@@ -35,5 +35,11 @@ namespace Template.DAL
             }
             return res;
         }
+
+        public List<t_user> GetUsersByCondition(DateTime time, string name, string phone)
+        {
+            string sql = @"";
+            return null;
+        }
     }
 }

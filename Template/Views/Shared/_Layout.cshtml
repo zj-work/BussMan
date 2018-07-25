@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/style-default.css">
     <link rel="stylesheet" type="text/css" href="~/Content/assets/css/quill.snow.css">
     <link rel="stylesheet" type="text/css" href="~/Content/css/wangEditor.min.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/laydate/theme/default/laydate.css">
     @RenderSection("head", false)
 </head>
 <body>
@@ -102,11 +103,11 @@
                             else
                             {
                                 <li class="has-submenu">
-                                    <a href="#submenuOne" data-toggle="collapse" aria-expanded="false">
+                                    <a href="#submenuOne" data-toggle="collapse" aria-expanded="@(num == Model.currentMenu ? "true" : "false")">
                                         <i class="@("sli-0"+num.ToString())"></i>
                                         <span class="nav-text">@item.Key.Text</span>
                                     </a>
-                                    <div class="sub-menu collapse secondary" id="submenuOne">
+                                    <div class="sub-menu collapse secondary @(num == Model.currentMenu ? "in" : "")" id="submenuOne">
                                         <ul>
                                             @foreach (var temp in item.Value)
                                             {
@@ -136,25 +137,33 @@
     <script type="text/javascript" src="~/Content/assets/plugins/lib/plugins.js"></script>
     <script type="text/javascript" src="~/Content/assets/plugins/lib/modernizr.js"></script>
     <script type="text/javascript" src="~/Content/script/wangEditor.min.js"></script>
-    @*<script type="text/javascript" src="~/Content/assets/plugins/flot/excanvas.min.js"></script>
-        <script type="text/javascript" src="~/Content/assets/plugins/flot/jquery.flot.min.js"></script>
-        <script type="text/javascript" src="~/Content/assets/plugins/flot/jquery.flot.tooltip.js"></script>
-        <script type="text/javascript" src="~/Content/assets/plugins/flot/jquery.flot.resize.min.js"></script>
-        <script type="text/javascript" src="~/Content/assets/plugins/flot/jquery.flot.crosshair.min.js"></script>
-        <script type="text/javascript" src="~/Content/assets/plugins/flot/jquery.flot.pie.min.js"></script>*@
+    <script type="text/javascript" src="~/Content/assets/plugins/flot/excanvas.min.js"></script>
+    <script type="text/javascript" src="~/Content/assets/plugins/flot/jquery.flot.min.js"></script>
+    <script type="text/javascript" src="~/Content/assets/plugins/flot/jquery.flot.tooltip.js"></script>
+    <script type="text/javascript" src="~/Content/assets/plugins/flot/jquery.flot.resize.min.js"></script>
+    <script type="text/javascript" src="~/Content/assets/plugins/flot/jquery.flot.crosshair.min.js"></script>
+    <script type="text/javascript" src="~/Content/assets/plugins/flot/jquery.flot.pie.min.js"></script>
 
-    @*<script type="text/javascript" src="~/Content/assets/plugins/lib/sparklines.js"></script>
-        <script type="text/javascript" src="~/Content/assets/plugins/lib/jquery.knob.min.js"></script>
-        <script type="text/javascript" src="~/Content/assets/plugins/monthly/js/monthly.js"></script>
-        <script type="text/javascript" src="~/Content/assets/plugins/emojionearea/emojionearea.min.js"></script>
-        <script type="text/javascript" src="~/Content/assets/js/app.base.js"></script>
-        <script type="text/javascript" src="~/Content/assets/js/cmp-todo.js"></script>
-        <script type="text/javascript" src="~/Content/assets/js/page-dashboard.js"></script>*@
+    <script type="text/javascript" src="~/Content/assets/plugins/lib/sparklines.js"></script>
+    <script type="text/javascript" src="~/Content/assets/plugins/lib/jquery.knob.min.js"></script>
+    <script type="text/javascript" src="~/Content/assets/plugins/monthly/js/monthly.js"></script>
+    <script type="text/javascript" src="~/Content/assets/plugins/emojionearea/emojionearea.min.js"></script>
+    <script type="text/javascript" src="~/Content/assets/js/app.base.js"></script>
+    <script type="text/javascript" src="~/Content/assets/js/cmp-todo.js"></script>
+    <script type="text/javascript" src="~/Content/assets/js/page-dashboard.js"></script>
 
     <script src="~/Content/dist/katex.min.js"></script>
     <script src="~/Content/dist/highlight.min.js"></script>
     <script src="~/Content/dist/quill.js"></script>
     <script type="text/javascript" src="~/Content/script/webuploader.nolog.min.js"></script>
+    <script type="text/javascript" src="~/Content/laydate/laydate.js"></script>
+    <script>
+        //日期范围
+        laydate.render({
+            elem: '#test6'
+            , range: true
+        });
+    </script>
 
     @RenderSection("script", false)
 </body>

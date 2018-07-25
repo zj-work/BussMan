@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 using System.Xml;
@@ -125,6 +126,50 @@ namespace Template.Controllers
                 path = "";
             }
             return path;
+        }
+
+        public string CreatePageUI(string url, int currentIndex,int pageCount)
+        {
+            StringBuilder sb = new StringBuilder();
+            if (pageCount >= 1) //超过一页才显示
+            {
+                sb.Append("<ul class=\"pagination clearfix\">");
+
+                int start = 1, end = 1;
+                start = currentIndex > 5 ? (currentIndex - 5) : 1;//起始页
+                end = (start + (currentIndex > 99 ? 4 : 9)) > pageCount ? pageCount : (start + (currentIndex > 99 ? 4 : 9));//结束页
+                if (end == pageCount && pageCount > 10) //如果是最后一页显示页码向前13个页面
+                {
+                    start = pageCount - (currentIndex > 99 ? 4 : 9);
+                }
+                if (!url.Contains('?'))
+                {
+                    url += "?";
+                }
+                else
+                {
+                    url += "&";
+                }
+                sb.Append(" <li class=\"paginate_button \"><a href=\"" + url+"pid=1" + "\" aria-controls=\"DataTables_Table_0\" data-dt-idx=\"3\" tabindex=\"0\">首页</a></li>");
+                while (start <= end)
+                {
+                    string u = url;
+                    u += "pid=" + start;
+                    if (start == currentIndex)
+                    {
+                        sb.Append("<li class=\"paginate_button active\"><a aria-controls=\"DataTables_Table_0\" data-dt-idx=\"1\" tabindex=\"0\">" + currentIndex + "</a></li>");
+                    }
+                    else
+                    {
+                        sb.Append(" <li class=\"paginate_button \"><a href=\"" + u + "\" aria-controls=\"DataTables_Table_0\" data-dt-idx=\"3\" tabindex=\"0\">" + start + "</a></li>");
+                    }
+                    start++;
+                }
+                sb.Append(" <li class=\"paginate_button \"><a href=\"" + url + "pid="+pageCount + "\" aria-controls=\"DataTables_Table_0\" data-dt-idx=\"3\" tabindex=\"0\">尾页</a></li>");
+                sb.Append("</ul>");
+            }
+
+            return sb.ToString();
         }
     }
 }

@@ -758,6 +758,9 @@
     <Content Include="Content\dist\katex.min.js" />
     <Content Include="Content\dist\quill.js" />
     <Content Include="Content\dist\quill.min.js" />
+    <Content Include="Content\laydate\laydate.js" />
+    <Content Include="Content\laydate\theme\default\font\iconfont.svg" />
+    <Content Include="Content\laydate\theme\default\laydate.css" />
     <Content Include="Content\script\jquery-1.8.3.min.js" />
     <Content Include="Content\script\Uploader.swf" />
     <Content Include="Content\script\Util.js" />
@@ -892,6 +895,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Cooperate\CooperManage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\laydate\theme\default\font\iconfont.eot" />
+    <Content Include="Content\laydate\theme\default\font\iconfont.ttf" />
+    <Content Include="Content\laydate\theme\default\font\iconfont.woff" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

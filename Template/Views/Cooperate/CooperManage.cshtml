@@ -3,7 +3,10 @@
     ViewBag.Title = "CooperManage";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@model Template.Models.CooperModel
+@section head{
+    <link rel="stylesheet" href="~/Content/css/webuploader.css" />
+}
 
 <div class="page-header">
     <h1>商务合作管理</h1>
@@ -13,7 +16,7 @@
     <div class="mainCon padding20">
         <!--操作按钮 S-->
         <div class="handle">
-            <a href="javascript:;" onclick="" class="btn btn-danger radius">批量删除</a>
+            <a href="javascript:;" onclick="removeList()" class="btn btn-danger radius">批量删除</a>
             <a class="btn btn-primary radius" data-toggle="modal" data-target="#addCursor">添加商务合作</a>
         </div>
         <!--操作按钮 E-->
@@ -28,26 +31,27 @@
                 <th width="5%">修改</th>
                 <th width="5%">删除</th>
             </tr>
-            <tr>
-                <td><input type="checkbox" id="inlineCheckbox1" value="option1" /></td>
-                <td>张三</td>
-                <td><img src="~/Content/assets/images/defaultLoge.png" alt="中国物通网"></td>
-                <td>中国物通网(www.chinawutong.com)是北京物通时空网络科技开发有限公司旗下物流行业网站，是国内以企业多元化物品流通需求为中心，系统整合物流企业、运输车辆、国际海运……</td>
-                <td>2018-06-28 09:56</td>
-                <td><a class="deletIcon" onclick=""><img src="~/Content/assets/images/reviseIcon.png" alt="修改"></a></td>
-                <td><a class="deletIcon" onclick=""><img src="~/Content/assets/images/deletIcon.png" alt="删除"></a></td>
-            </tr>
+            @if (Model.list.Count > 0)
+            {
+                foreach (var item in Model.list)
+                {
+                    <tr>
+                        <td><input name="check_id" type="checkbox" value="@item.ID" /></td>
+                        <td>@item.name</td>
+                        <td><img src="@item.logo" alt="中国物通网"></td>
+                        <td>@item.content</td>
+                        <td>@item.time</td>
+                        <td><a class="deletIcon" onclick="ShowItem('@item.ID','@item.name','@item.logo','@item.content')" data-toggle="modal" data-target="#addCursor"><img src="~/Content/assets/images/reviseIcon.png" alt="修改"></a></td>
+                        <td><a class="deletIcon" onclick="remove('@item.ID')"><img src="~/Content/assets/images/deletIcon.png" alt="删除"></a></td>
+                    </tr>
+                }
+            }
+
         </table>
         <!--客户列表 E-->
         <!--分页 S-->
         <div class="pageAnger">
-            <ul class="pagination clearfix">
-                <li class="paginate_button previous disabled" id="DataTables_Table_0_previous"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0">首页</a></li>
-                <li class="paginate_button active"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0">1</a></li>
-                <li class="paginate_button "><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0">2</a></li>
-                <li class="paginate_button "><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="3" tabindex="0">3</a></li>
-                <li class="paginate_button next" id="DataTables_Table_0_next"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="7" tabindex="0">尾页</a></li>
-            </ul>
+            @Html.Raw(Model.PageUI)
         </div>
         <!--分页 E-->
 
@@ -57,6 +61,7 @@
 
 <!--添加客户 S-->
 <div class="modal fade" id="addCursor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <input id="target" type="hidden" value="-1" />
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -66,22 +71,133 @@
             <div class="modal-body">
                 <div class="infoLi">
                     <span class="infoLiTit">客户名称</span>
-                    <input id="" placeholder="" type="text" value="" class="infoLiIpt2" />
+                    <input id="name" placeholder="" type="text" value="" class="infoLiIpt2" />
                 </div>
                 <div class="infoLi">
                     <span class="infoLiTit">添加logo</span>
-                    <a class="infoLiImg"><img src="~/Content/assets/images/defaultLoge.png"></a>
+                    <div class="infoLiImg"><img id="logo" src="~/Content/assets/images/defaultLoge.png"></div>
+                    <div class="picker">选择</div>
                     <span style="color:#999; font-size:12px; position:absolute; top:70px;">（建议logo尺寸280*80px）</span>
                 </div>
                 <div class="infoLi">
                     <span class="infoLiTit">客户简介</span>
-                    <textarea name="" class="infoLiTxt" value="" rows="3"></textarea>
+                    <textarea id="info" class="infoLiTxt" value="" rows="3"></textarea>
                 </div>
                 <div class="submitBox2">
-                    <input type="button" value="确认添加" id="submitBtn" class="submitBtn" />
+                    <input type="button" value="保存" id="submitBtn" class="submitBtn" onclick="Save()" />
                 </div>
             </div>
         </div>
     </div>
 </div>
 <!--添加客户 E-->
+
+@section script{
+    <script type="text/javascript">
+        //保存
+        function Save() {
+            var id = $('#target').val();
+            var name = $('#name').val();
+            var logo = $('#logo').attr('src');
+            var info = $('#info').val();
+            var data = {
+                'id': id,
+                'name': name,
+                'logo': logo,
+                'content': info
+            };
+            $.post('/Cooperate/SaveCooper', data, res => {
+                if (res.state == 1) {
+                    alert('保存信息成功');
+                    window.location.reload();
+                } else {
+                    alert('保存信息失败');
+                }
+            });
+        }
+        //显示详细信息
+        function ShowItem(id,name,logo,content) {
+            //修改target的值
+            $('#target').val(id);
+            $('#name').val(name);
+            $('#logo').attr('src', logo);
+            $('#info').val(content);
+        }
+        //删除
+        function remove(id) {
+            var data = {
+                'id': id
+            };
+            $.post('/Cooperate/RemoveCooper', data, res => {
+                if (res.state == 1) {
+                    alert('删除成功');
+                    window.location.reload();
+                } else {
+                    alert('删除失败');
+                }
+            });
+        }
+        //批量删除
+        function removeList() {
+            var list = [];
+            $('input[name="check_id"]').each((index, item) => {
+                var tl = $(item).is(':checked');
+                if (tl) {
+                    var id = $(item).val();
+                    list.push(id);
+                }
+            })
+            if (list.length == 0) {
+                alert('请选择要删除的对象');
+                return;
+            }
+            var data = {
+                'list': list
+            };
+            $.post('/Cooperate/RemoveManyCooper', data, res => {
+                if (res.state == 1) {
+                    alert('删除成功');
+                    window.location.reload();
+                } else {
+                    alert('删除失败');
+                }
+            });
+        }
+    </script>
+
+    <!--图片上传-->
+    <script type="text/javascript">
+        var uploader = WebUploader.create({
+            auto: true,
+            swf: '../Content/script/Uploader.swf',
+            server: '/Util/Upload',
+            pick: '.picker',
+            resize: false,
+            compress: false,
+            duplicate: true,
+            accept: {
+                title: 'Images',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/*'
+            },
+            disableGlobalDnd: true
+        });
+
+        uploader.on('fileQueued', function (file) {
+
+        });
+
+        uploader.on('uploadSuccess', function (file, res) {
+            //显示图片
+            if (res.state == 1) {
+                var img = $('#logo');
+                $(img).attr('src', res.path);
+            } else {
+                alert("上传图片失败");
+            }
+        });
+
+        uploader.on('uploadError', function (file) {
+        });
+    </script>
+}

@@ -3,6 +3,7 @@
     ViewBag.Title = "JoinUsManage";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+@model Template.Models.JoinUsModel
 
 <div class="page-header">
     <h1>加入我们</h1>
@@ -13,26 +14,35 @@
         <div class="infoLi">
             <span class="infoLiTit">加入条件</span>
             <!--编辑器 S-->
-            <div class="txtEdit fl" id="join_condition"></div>
+            <div class="txtEdit fl" id="join_condition">
+                @Html.Raw(Model.condition == null?"":Model.condition.content)
+            </div>
             <textarea id="join_condition_Info" style="display:none"></textarea>
+            <input id="con_id" type="hidden" value="@(Model.condition == null?"-1":Model.condition.ID)" />
             <!--编辑器 E-->
         </div>
         <div class="infoLi">
             <span class="infoLiTit">加入任务</span>
             <!--编辑器 S-->
-            <div class="txtEdit fl" id="join_task"></div>
+            <div class="txtEdit fl" id="join_task">
+                @Html.Raw(Model.task == null ? "" : Model.task.content)
+            </div>
             <textarea id="join_task_Info" style="display:none"></textarea>
+            <input id="task_id" type="hidden" value="@(Model.task == null?"-1":Model.task.ID)" />
             <!--编辑器 E-->
         </div>
         <div class="infoLi">
             <span class="infoLiTit">退出机制</span>
             <!--编辑器 S-->
-            <div class="txtEdit fl" id="join_exit"></div>
+            <div class="txtEdit fl" id="join_exit">
+                @Html.Raw(Model.exit == null ? "" : Model.exit.content)
+            </div>
             <textarea id="join_exit_Info" style="display:none"></textarea>
+            <input id="exit_id" type="hidden" value="@(Model.exit == null?"-1":Model.exit.ID)" />
             <!--编辑器 E-->
         </div>
         <div class="submitBox">
-            <input type="button" value="保存" id="submitBtn" class="submitBtn" />
+            <input type="button" value="保存" id="submitBtn" class="submitBtn" onclick="save()" />
             <input type="button" value="取消" id="" class="cancelBtn" />
         </div>
     </div>
@@ -101,4 +111,37 @@
 
     </script>
     <!--富文本编辑框 E-->
+
+    <script type="text/javascript">
+        function save() {
+            var conid = $('#con_id').val();
+            var taskid = $('#task_id').val();
+            var exitid = $('#exit_id').val();
+            var condition = $('#join_condition_Info').val();
+            var task = $('#join_task_Info').val();
+            var exit = $('#join_exit_Info').val();
+            var data = {
+                'condition': {
+                    'id': conid,
+                    'content': condition
+                },
+                'task': {
+                    'id': taskid,
+                    'content': task
+                },
+                'exit': {
+                    'id': exitid,
+                    'content': exit
+                }
+            };
+            $.post('/JoinUs/Save', data, res => {
+                if (res.state == 1) {
+                    alert(res.message);
+                    window.location.reload();
+                } else {
+                    alert(res.message);
+                }
+            })
+        }
+    </script>
 }

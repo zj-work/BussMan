@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Template.BLL;
+using Template.Model;
 using Template.Models;
 
 namespace Template.Controllers
 {
     public class ProjectController : BaseController<ProjModel>
     {
+        private PageBLL _bll = new PageBLL();
         // GET: Project
         public ActionResult Index(string kind)
         {
@@ -32,9 +35,30 @@ namespace Template.Controllers
                     pageModel.pageTitle = "高端会议";
                     break;
             }
-            pageModel.projTitle = "测试标题";
-            pageModel.projContent = "<p>测试内容文本</p>";
+            //获取项目详细信息
+            t_page item = _bll.GetPageByKind(kind);
+            pageModel.projTitle = Common.CommonFun.IsEmpty(item) ? "" : item.title;
+            pageModel.projContent = Common.CommonFun.IsEmpty(item) ? "" : item.content;
+            pageModel.kind = kind;
+            pageModel.id = Common.CommonFun.IsEmpty(item) ? "-1" : item.ID;
+            pageModel.viewnum = Common.CommonFun.IsEmpty(item) ? "0" : item.viewnum;
             return View(pageModel);
+        }
+
+        [ValidateInput(false)]
+        [HttpPost]
+        public JsonResult SavePage(t_page model)
+        {
+            object res = new { };
+            if (_bll.SavePage(model))
+            {
+                res = new { state = 1, data = "", message = "保存项目信息成功" };
+            }
+            else
+            {
+                res = new { state = 0, data = "", message = "保存项目信息失败" };
+            }
+            return Json(res);
         }
     }
 }

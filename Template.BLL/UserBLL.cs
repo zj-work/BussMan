@@ -62,5 +62,10 @@ namespace Template.BLL
             }
             return res;
         }
+
+        public List<t_user> GetUsersByCondition(string time, string name, string phone)
+        {
+            return _dal.GetUsersByCondition(DateTime.Parse(time), name, phone);
+        }
     }
 }

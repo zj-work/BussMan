@@ -13,6 +13,8 @@ namespace Template.Controllers
         {
             Init();
             pageModel.currentMenu = 3;
+            //获取显示数据
+
             return View(pageModel);
         }
     }

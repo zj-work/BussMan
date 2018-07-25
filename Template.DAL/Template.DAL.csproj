@@ -47,6 +47,9 @@
   <ItemGroup>
     <Compile Include="BaseDAL.cs" />
     <Compile Include="ComDAL.cs" />
+    <Compile Include="CooperDAL.cs" />
+    <Compile Include="CustomDAL.cs" />
+    <Compile Include="PageDAL.cs" />
     <Compile Include="PicDAL.cs" />
     <Compile Include="UserDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

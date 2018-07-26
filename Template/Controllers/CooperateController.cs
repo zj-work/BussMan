@@ -100,5 +100,10 @@ namespace Template.Controllers
             return Json(obj);
         }
 
+        public ActionResult Index()
+        {
+            return View();
+        }
+
     }
 }

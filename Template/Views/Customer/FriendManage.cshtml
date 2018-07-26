@@ -14,14 +14,11 @@
         <!--搜索条件 S-->
         <div class="searchBar clearfix">
             <div class="fl marginRight20">
-                <input type="text" class="dateInput" placeholder="请选择日期范围" id="test6" />
-            </div>
-            <div class="fl marginRight20">
-                <input type="text" class="srhInput" placeholder="输入好友姓名" />
+                <input type="text" class="dateInput" placeholder="请选择日期范围" id="test6" value="@Model.search_time" />
             </div>
             <div class="fl">
-                <input type="text" class="srhInput marginRight20" placeholder="输入好友联系方式" />
-                <input type="button" class="submitBtn" value="搜索" />
+                <input type="text" class="srhInput marginRight20" placeholder="输入好友姓名" id="search_custom" value="@Model.search_custom" />
+                <input type="button" class="submitBtn" value="搜索" onclick="search()" />
             </div>
         </div>
         <!--搜索条件 E-->
@@ -90,7 +87,7 @@
                 <div class="infoLi">
                     <span class="infoLiTit">所在地区</span>
                     <input id="location" placeholder="" type="text" value="" class="infoLiIpt2" />
-                    <input id="owner" type="hidden" value="@Model.loginName" />
+                    <input id="owner" type="hidden" value="@Model.loginRealName" />
                 </div>
                 <div class="submitBox2">
                     <input type="button" value="保存" id="submitBtn" class="submitBtn" onclick="Save()" />
@@ -174,6 +171,35 @@
                     alert('删除失败');
                 }
             });
+        }
+        //搜索
+        function search() {
+            //获取搜索参数
+            var txt = $('#test6').val();
+            var start = txt.length == 0 ? "" : txt.split(' - ')[0];
+            var end = txt.length == 0 ? "" : txt.split(' - ')[1];
+            var owner = '@Model.loginName';
+            var custom = $('#search_custom').val();
+            if (start == "" && end == "" && owner == "" && custom == "") {
+                //清空搜索
+                window.location.href = "/sys/Friend";
+            } else {
+                //请求接口
+                var data = {
+                    'first': start,
+                    'end': end,
+                    'owner': owner,
+                    'custom': custom,
+                    'kind': 'friend'
+                };
+                $.post('/Customer/QueryUrl', data, res => {
+                    if (res.state == 1) {
+                        window.location.href = res.data;
+                    } else {
+                        alert(res.message);
+                    }
+                })
+            }
         }
     </script>
 }

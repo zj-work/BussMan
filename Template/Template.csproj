@@ -754,15 +754,70 @@
     <Content Include="Content\assets\plugins\year-calendar\js\languages\bootstrap-year-calendar.tr.js" />
     <Content Include="Content\css\wangEditor.min.css" />
     <Content Include="Content\css\webuploader.css" />
+    <Content Include="Content\disp\css\bootstrap.min.css" />
+    <Content Include="Content\disp\css\sidebar.css" />
+    <Content Include="Content\disp\css\style.css" />
+    <Content Include="Content\disp\css\swiper.min.css" />
+    <Content Include="Content\disp\css\wtaos.css" />
+    <Content Include="Content\disp\images\allicon.png" />
+    <Content Include="Content\disp\images\banner1.jpg" />
+    <Content Include="Content\disp\images\banner2.jpg" />
+    <Content Include="Content\disp\images\banner3.jpg" />
+    <Content Include="Content\disp\images\btn.png" />
+    <Content Include="Content\disp\images\btnbgon.jpg" />
+    <Content Include="Content\disp\images\cooperate1.jpg" />
+    <Content Include="Content\disp\images\cooperate2.jpg" />
+    <Content Include="Content\disp\images\ewm.jpg" />
+    <Content Include="Content\disp\images\favicon.ico" />
+    <Content Include="Content\disp\images\footerbg.png" />
+    <Content Include="Content\disp\images\img1.jpg" />
+    <Content Include="Content\disp\images\img2.jpg" />
+    <Content Include="Content\disp\images\img3.jpg" />
+    <Content Include="Content\disp\images\img4.jpg" />
+    <Content Include="Content\disp\images\img5.jpg" />
+    <Content Include="Content\disp\images\indexicon1.png" />
+    <Content Include="Content\disp\images\indexicon2.png" />
+    <Content Include="Content\disp\images\indexicon3.png" />
+    <Content Include="Content\disp\images\indextit1.png" />
+    <Content Include="Content\disp\images\indextit2.png" />
+    <Content Include="Content\disp\images\indextit3.png" />
+    <Content Include="Content\disp\images\indextit4.png" />
+    <Content Include="Content\disp\images\indextit5.png" />
+    <Content Include="Content\disp\images\logo.png" />
+    <Content Include="Content\disp\images\logofoot.png" />
+    <Content Include="Content\disp\images\logopub.png" />
+    <Content Include="Content\disp\images\more.png" />
+    <Content Include="Content\disp\images\moreicon.png" />
+    <Content Include="Content\disp\images\proimg1.jpg" />
+    <Content Include="Content\disp\images\proimg2.jpg" />
+    <Content Include="Content\disp\images\proimg3.jpg" />
+    <Content Include="Content\disp\images\proimg4.jpg" />
+    <Content Include="Content\disp\images\proimg5.jpg" />
+    <Content Include="Content\disp\images\sidenavicon.png" />
+    <Content Include="Content\disp\images\subanner.jpg" />
+    <Content Include="Content\disp\images\tabtitbg.png" />
+    <Content Include="Content\disp\images\tellicon.png" />
+    <Content Include="Content\disp\images\tit.png" />
+    <Content Include="Content\disp\images\wliconinput.png" />
+    <Content Include="Content\disp\js\custom.js" />
+    <Content Include="Content\disp\js\jquery-1.8.3.min.js" />
+    <Content Include="Content\disp\js\jquery-ui-min.js" />
+    <Content Include="Content\disp\js\scroll.js" />
+    <Content Include="Content\disp\js\swiper.min.js" />
+    <Content Include="Content\disp\js\wtaos.js" />
     <Content Include="Content\dist\highlight.min.js" />
     <Content Include="Content\dist\katex.min.js" />
     <Content Include="Content\dist\quill.js" />
     <Content Include="Content\dist\quill.min.js" />
+    <Content Include="Content\image\logo.png" />
+    <Content Include="Content\image\logo_qrcode.jpg" />
     <Content Include="Content\laydate\laydate.js" />
     <Content Include="Content\laydate\theme\default\font\iconfont.svg" />
     <Content Include="Content\laydate\theme\default\laydate.css" />
     <Content Include="Content\script\jquery-1.8.3.min.js" />
+    <Content Include="Content\script\jquery.qrcode.js" />
     <Content Include="Content\script\Uploader.swf" />
+    <Content Include="Content\script\utf.js" />
     <Content Include="Content\script\Util.js" />
     <Content Include="Content\script\wangEditor.min.js" />
     <Content Include="Content\script\webuploader.nolog.min.js" />
@@ -781,9 +836,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\image\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\Index\" />
     <Folder Include="Views\Util\" />
   </ItemGroup>
   <ItemGroup>
@@ -900,6 +953,15 @@
     <Content Include="Content\laydate\theme\default\font\iconfont.eot" />
     <Content Include="Content\laydate\theme\default\font\iconfont.ttf" />
     <Content Include="Content\laydate\theme\default\font\iconfont.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_DispLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\disp\images\Thumbs.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Index\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

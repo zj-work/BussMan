@@ -12,6 +12,7 @@ namespace Template.Models
         public int currentMenu { get; set; }
 
         public string loginName { get; set; }
+        public string loginRealName { get; set; }
     }
 
 }

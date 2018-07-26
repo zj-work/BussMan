@@ -60,5 +60,19 @@ namespace Template.Controllers
                 return Json(new { state = 0, data = "", message = "保存失败" });
             }
         }
+
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        /// <summary>
+        /// 联系我们（在线留言）
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Message()
+        {
+            return View();
+        }
     }
 }

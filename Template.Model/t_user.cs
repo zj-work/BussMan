@@ -19,5 +19,6 @@ namespace Template.Model
         /// 二维码保存路径-绝对路径
         /// </summary>
         public string ImageUrl { get; set; }
+        public string time { get; set; }
     }
 }

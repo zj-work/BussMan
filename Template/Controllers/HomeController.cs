@@ -76,5 +76,14 @@ namespace Template.Controllers
             }
             return Json(obj);
         }
+
+        /// <summary>
+        /// 公司简介
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Info()
+        {
+            return View();
+        }
     }
 }

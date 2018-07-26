@@ -14,14 +14,14 @@
         <!--搜索条件 S-->
         <div class="searchBar clearfix">
             <div class="fl marginRight20">
-                <input type="text" class="dateInput" placeholder="请选择日期范围" id="test6" />
+                <input type="text" class="dateInput" placeholder="请选择日期范围" id="test6" value="@Model.search_time" />
             </div>
             <div class="fl marginRight20">
-                <input type="text" class="srhInput" placeholder="输入客户姓名" />
+                <input type="text" class="srhInput" placeholder="输入负责人姓名" id="search_owner" value="@Model.search_owner" />
             </div>
             <div class="fl">
-                <input type="text" class="srhInput marginRight20" placeholder="输入客户联系方式" />
-                <input type="button" class="submitBtn" value="搜索" />
+                <input type="text" class="srhInput marginRight20" placeholder="输入客户姓名" id="search_custom" value="@Model.search_custom" />
+                <input type="button" class="submitBtn" value="搜索"  onclick="search()" />
             </div>
         </div>
         <!--搜索条件 E-->
@@ -38,6 +38,7 @@
                 <th>客户姓名</th>
                 <th>电话</th>
                 <th>所在地区</th>
+                <th>添加时间</th>
                 <th>留言内容</th>
                 <th>业务负责人</th>
                 <th>删除</th>
@@ -51,6 +52,7 @@
                         <td>@item.Name</td>
                         <td>@item.Phone</td>
                         <td>@item.Location</td>
+                        <td>@item.time</td>
                         <td>@item.Content</td>
                         <td>@item.Owner</td>
                         <td><a class="deletIcon" onclick="remove('@item.ID')"><img src="~/Content/assets/images/deletIcon.png" alt="删除"></a></td>
@@ -129,14 +131,6 @@
                 }
             });
         }
-        ////显示详细信息
-        //function ShowItem(id, name, phone, location,owner) {
-        //    //修改target的值
-        //    $('#target').val(id);
-        //    $('#name').val(name);
-        //    $('#logo').attr('src', logo);
-        //    $('#info').val(content);
-        //}
         //删除
         function remove(id) {
             var data = {
@@ -176,6 +170,35 @@
                     alert('删除失败');
                 }
             });
+        }
+        //搜索
+        function search() {
+            //获取搜索参数
+            var txt = $('#test6').val();
+            var start = txt.length == 0 ? "" : txt.split(' - ')[0];
+            var end = txt.length == 0 ? "" : txt.split(' - ')[1];
+            var owner = $('#search_owner').val();
+            var custom = $('#search_custom').val();
+            if (start == "" && end == "" && owner == "" && custom == "") {
+                //清空搜索
+                window.location.href = "/sys/Customer";
+            } else {
+                //请求接口
+                var data = {
+                    'first': start,
+                    'end': end,
+                    'owner': owner,
+                    'custom': custom,
+                    'kind':'all'
+                };
+                $.post('/Customer/QueryUrl', data, res => {
+                    if (res.state == 1) {
+                        window.location.href = res.data;
+                    } else {
+                        alert(res.message);
+                    }
+                })
+            }
         }
     </script>
 }

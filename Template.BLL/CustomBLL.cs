@@ -12,6 +12,8 @@ namespace Template.BLL
     {
 
         private CustomDAL _dal = new CustomDAL();
+        private UserDAL _user = new UserDAL();
+
         private int pageCount = 5;
         /// <summary>
         /// 获取所有人的客户列表
@@ -57,6 +59,88 @@ namespace Template.BLL
             }
         }
 
+        public List<t_customer> GetCustomsByCondition(string first, string end, string oid, string cid,int pageIndex)
+        {
+            int firstIndex = (pageIndex - 1) * pageCount + 1;
+            int endIndex = pageIndex * pageCount;
+
+            string owner = string.Empty;
+            if (oid != "0")
+            {
+                t_user model = _user.GetUserById(oid);
+                if (model != null)
+                {
+                    owner = model.RealName;
+                }
+                else
+                {
+                    owner = "";
+                }
+            }
+            else { owner = ""; }
+
+            string custom = string.Empty;
+            if (cid != "0")
+            {
+                t_customer model = _dal.GetCustomById(cid);
+                if (model != null)
+                {
+                    custom = model.Name;
+                }
+                else
+                {
+                    custom = "";
+                }
+            }
+            else { custom = ""; }
+
+            return _dal.GetCustomByCondition(first, end, owner, custom, firstIndex, endIndex);
+
+        }
+
+        public int GetPageCountByCondition(string first, string end, string oid, string cid)
+        {
+            string owner = string.Empty;
+            if (oid != "0")
+            {
+                t_user model = _user.GetUserById(oid);
+                if (model != null)
+                {
+                    owner = model.RealName;
+                }
+                else
+                {
+                    owner = "";
+                }
+            }
+            else { owner = ""; }
+
+            string custom = string.Empty;
+            if (cid != "0")
+            {
+                t_customer model = _dal.GetCustomById(cid);
+                if (model != null)
+                {
+                    custom = model.Owner;
+                }
+                else
+                {
+                    custom = "";
+                }
+            }
+            else { custom = ""; }
+
+            int num = _dal.GetPageCountByCondition(first, end, owner, custom);
+            if (num % pageCount == 0)
+            {
+                return num / pageCount;
+            }
+            else
+            {
+                return (num / pageCount) + 1;
+            }
+        }
+
         public bool SaveModel(t_customer model)
         {
             bool res = false;
@@ -76,6 +160,18 @@ namespace Template.BLL
         public bool RemoveModel(int id)
         {
             return _dal.RemoveModel(id);
+        }
+
+        public t_customer GetCustomByRealName(string name)
+        {
+            t_customer model = _dal.GetCustomByRealName(name);
+            return model;
+        }
+
+        public t_customer GetCustomsById(string id)
+        {
+            t_customer model = _dal.GetCustomById(id);
+            return model;
         }
 
     }

@@ -93,6 +93,8 @@
 <!--添加客户 E-->
 
 @section script{
+    <script type="text/javascript" src="~/Content/script/jquery.qrcode.js"></script>
+    <script type="text/javascript" src="~/Content/script/utf.js"></script>
     <script type="text/javascript">
         //保存
         function Save() {
@@ -116,7 +118,7 @@
             });
         }
         //显示详细信息
-        function ShowItem(id,name,logo,content) {
+        function ShowItem(id, name, logo, content) {
             //修改target的值
             $('#target').val(id);
             $('#name').val(name);

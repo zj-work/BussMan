@@ -3918,7 +3918,8 @@ h1, .h1, h2, .h2, h3, .h3{margin:0; padding:0;}
 .infoLi .infoLiIpt2{width:300px;}
 .ewmImg li{float:left; width:120px; margin-right:30px;}
 .ewmImg img{ width:120px; height:120px;}
-.submitBox{margin-left:160px; padding-bottom:100px;}
+.qrcode {background-image: url(../images/ewmDefault.gif);width: 175px;height: 175px;}
+.submitBox {margin-left: 160px;padding-bottom: 100px;}
 .submitBox .submitBtn,
 .submitBox .cancelBtn{color: #fff;border: 0;cursor: pointer; border-radius: 2px; width: 80px;height:30px;line-height: 30px;text-align: center; font-size: 15px; margin:18px 20px 18px auto;}
 .submitBox .submitBtn{background:#00B7EE;}
@@ -3961,6 +3962,7 @@ h1, .h1, h2, .h2, h3, .h3{margin:0; padding:0;}
 .modal-bodyRight .ewmImg img{width:175px; height:175px; vertical-align:center; text-align:center;}
 .modal-bodyRight p{font-size:14px; text-align:center; color:#8688a2;}
 .modal-bodyRight .submitBtn{color: #fff;border: 0;cursor: pointer; border-radius: 2px; width:100px;height:30px;line-height: 30px;text-align:center; font-size: 15px; margin:10px auto; background:#ff7c66;}
+.modal-bodyRight .submitBtnGray{color: #fff;border: 0;cursor: pointer; border-radius: 2px; width:100px;height:30px;line-height: 30px;text-align:center; font-size: 15px; margin:10px auto; background:#ccc;}
 
 /*登录页面*/
 .bg{background:url(../images/bg.jpg); width:100%; height:100%; position:absolute;}

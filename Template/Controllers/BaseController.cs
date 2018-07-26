@@ -103,6 +103,12 @@ namespace Template.Controllers
                 {
                     pinfo.SetValue(pageModel, user.Cust_Name);
                 }
+                //loginRealName
+                PropertyInfo pinfo2 = pageModel.GetType().GetProperty("loginRealName");
+                if (pinfo2 != null)
+                {
+                    pinfo2.SetValue(pageModel, user.RealName);
+                }
             }
             catch { }
 

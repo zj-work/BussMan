@@ -3,7 +3,7 @@
     ViewBag.Title = "StaffManage";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+@model Template.Models.StaffModel
 
 <div class="page-header">
     <h1>员工管理</h1>
@@ -14,22 +14,22 @@
         <!--搜索条件 S-->
         <div class="searchBar clearfix">
             <div class="fl marginRight20">
-                <input type="text" class="dateInput" placeholder="请选择日期范围" id="test6">
+                <input type="text" class="dateInput" placeholder="请选择日期范围" id="test6" value="@Model.search_time">
             </div>
 
             <div class="fl marginRight20">
-                <input type="text" class="srhInput" placeholder="输入员工姓名">
+                <input type="text" class="srhInput" placeholder="输入员工姓名" id="search_name" value="@Model.search_name">
 
             </div><div class="fl">
-                <input type="text" class="srhInput marginRight20" placeholder="输入员工联系方式">
-                <input type="button" class="submitBtn" value="搜索">
+                <input type="text" class="srhInput marginRight20" placeholder="输入员工联系方式" id="search_phone" value="@Model.search_phone">
+                <input type="button" class="submitBtn" value="搜索" onclick="search()">
             </div>
         </div>
         <!--搜索条件 E-->
         <!--操作按钮 S-->
         <div class="handle">
-            <a href="javascript:;" onclick="" class="btn btn-danger radius">批量删除</a>
-            <a class="btn btn-primary radius" data-toggle="modal" data-target="#addCursor">添加员工</a>
+            <a href="javascript:;" onclick="removeList()" class="btn btn-danger radius">批量删除</a>
+            <a class="btn btn-primary radius" data-toggle="modal" data-target="#addCursor" onclick="clearItem()">添加员工</a>
         </div>
         <!--操作按钮 E-->
         <!--客户列表 S-->
@@ -45,50 +45,35 @@
                 <th>修改</th>
                 <th>删除</th>
             </tr>
-            <tr>
-                <td><input type="checkbox" id="inlineCheckbox1" value="option1" /></td>
-                <td>张三</td>
-                <td>15200010002</td>
-                <td>北京市 海淀区</td>
-                <td>admin1</td>
-                <td>123456</td>
-                <td>2018-06-01 11:11:42</td>
-                <td><a class="deletIcon" onclick=""><img src="~/Content/assets/images/reviseIcon.png" alt="修改"></a></td>
-                <td><a class="deletIcon" onclick=""><img src="~/Content/assets/images/deletIcon.png" alt="删除"></a></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" id="inlineCheckbox1" value="option1" /></td>
-                <td>张三</td>
-                <td>15200010002</td>
-                <td>北京市 海淀区</td>
-                <td>admin1</td>
-                <td>123456</td>
-                <td>2018-06-01 11:11:42</td>
-                <td><a class="deletIcon" onclick=""><img src="~/Content/assets/images/reviseIcon.png" alt="修改"></a></td>
-                <td><a class="deletIcon" onclick=""><img src="~/Content/assets/images/deletIcon.png" alt="删除"></a></td>
-            </tr>
-            <tr>
-                <td><input type="checkbox" id="inlineCheckbox1" value="option1" /></td>
-                <td>张三</td>
-                <td>15200010002</td>
-                <td>北京市 海淀区</td>
-                <td>admin1</td>
-                <td>123456</td>
-                <td>2018-06-01 11:11:42</td>
-                <td><a class="deletIcon" onclick=""><img src="~/Content/assets/images/reviseIcon.png" alt="修改"></a></td>
-                <td><a class="deletIcon" onclick=""><img src="~/Content/assets/images/deletIcon.png" alt="删除"></a></td>
-            </tr>
+            @if (Model.staffs.Count > 0)
+            {
+                foreach (var item in Model.staffs)
+                {
+
+                    <tr>
+                        <td><input name="check_id" type="checkbox" id="inlineCheckbox1" value="@item.ID" /></td>
+                        <td>@item.RealName</td>
+                        <td>@item.Phone</td>
+                        <td>@item.Location</td>
+                        <td>@item.Cust_Name</td>
+                        <td>@item.Pwd</td>
+                        <td>@item.time</td>
+                        <td><a class="deletIcon" onclick="ShowItem('@item.ID','@item.RealName','@item.Phone','@item.Location','@item.Cust_Name','@item.Pwd','@item.ImageUrl')" data-toggle="modal" data-target="#addCursor"><img src="~/Content/assets/images/reviseIcon.png" alt="修改"></a></td>
+                        <td>
+                            @if (!item.Type.Equals("Admin"))
+                            {
+                                <a class="deletIcon" onclick="remove('@item.ID')"><img src="~/Content/assets/images/deletIcon.png" alt="删除"></a>
+                            }
+                        </td>
+                    </tr>
+                }
+            }
+
         </table>
         <!--客户列表 E-->
         <!--分页 S-->
         <div class="pageAnger">
-            <ul class="pagination clearfix">
-                <li class="paginate_button previous disabled" id="DataTables_Table_0_previous"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="0" tabindex="0">首页</a></li>
-                <li class="paginate_button active"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="1" tabindex="0">1</a></li>
-                <li class="paginate_button "><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="2" tabindex="0">2</a></li>
-                <li class="paginate_button "><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="3" tabindex="0">3</a></li>
-                <li class="paginate_button next" id="DataTables_Table_0_next"><a href="#" aria-controls="DataTables_Table_0" data-dt-idx="7" tabindex="0">尾页</a></li>
-            </ul>
+            @Html.Raw(Model.PageUI)
         </div>
         <!--分页 E-->
 
@@ -98,6 +83,7 @@
 
 <!--添加员工 S-->
 <div class="modal fade" id="addCursor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <input id="target" type="hidden" value="-1" />
     <div class="modal-dialog width800" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -108,40 +94,213 @@
                 <div class="fl">
                     <div class="infoLi">
                         <span class="infoLiTit">员工姓名</span>
-                        <input id="" placeholder="" type="text" value="" class="infoLiIpt2" />
+                        <input id="name" placeholder="" type="text" value="" class="infoLiIpt2" />
                     </div>
                     <div class="infoLi">
                         <span class="infoLiTit">电话</span>
-                        <input id="" placeholder="" type="text" value="" class="infoLiIpt2" />
+                        <input id="phone" placeholder="" type="text" value="" class="infoLiIpt2" />
                     </div>
                     <div class="infoLi">
                         <span class="infoLiTit">所在地区</span>
-                        <input id="" placeholder="" type="text" value="" class="infoLiIpt2" />
+                        <input id="location" placeholder="" type="text" value="" class="infoLiIpt2" />
                     </div>
                     <div class="infoLi">
                         <span class="infoLiTit">账号/用户名</span>
-                        <input id="" placeholder="" type="text" value="" class="infoLiIpt2" />
+                        <input id="cust_name" placeholder="" type="text" value="" class="infoLiIpt2" />
                     </div>
                     <div class="infoLi">
                         <span class="infoLiTit">登录密码</span>
-                        <input id="" placeholder="" type="text" value="" class="infoLiIpt2" />
+                        <input id="pwd" placeholder="" type="text" value="" class="infoLiIpt2" />
                     </div>
                     <div class="submitBox2">
-                        <input type="button" value="确认添加" id="submitBtn" class="submitBtn" />
-                        <!--不可操作 灰色-->
-                        <input type="button" value="确认添加" id="submitBtn" class="submitBtnGray" style="display:none;" />
+                        <input type="button" value="保存" class="submitBtn" onclick="Save_Click()" />
                     </div>
                 </div>
 
                 <div class="fl modal-bodyRight">
-                    <div class="ewmImg"><img src="~/Content/assets/images/ewmDefault.gif"></div>
+                    <div class="ewmImg qrcode" id="qrcode"></div>
                     <p>确认添加信息<br>此处生成员工专属二维码</p>
-                    <input type="button" value="下载" id="submitBtn" class="submitBtn" />
+                    <input type="button" value="生成二维码" id="btn_downloadGray" class="submitBtn" onclick="showQR_Click()" />
+                    <input type="button" value="下载" id="btn_download" class="submitBtn" style="display:none" onclick="download()" />
                 </div>
             </div>
         </div>
-
     </div>
 </div>
-
 <!--添加员工 E-->
+
+@section script{
+    <script type="text/javascript" src="~/Content/script/jquery.qrcode.js"></script>
+    <script type="text/javascript" src="~/Content/script/utf.js"></script>
+    <script type="text/javascript">
+        //保存
+        function Save_Click() {
+            //生成二维码
+            var id = $('#target').val();
+            var name = $('#name').val();
+            var phone = $('#phone').val();
+            var location = $('#location').val();
+            var cust_name = $('#cust_name').val();
+            var pwd = $('#pwd').val();
+            var imgUrl = "";
+
+            createQRCode(name);
+
+            var data = {
+                'ID': id,
+                'Cust_Name': cust_name,
+                'Phone': phone,
+                'Location': location,
+                'RealName': name,
+                'Pwd': pwd,
+                'ImageUrl': imgUrl,
+            };
+            $.post('/Staff/Save', data, res => {
+                if (res.state == 1) {
+                    alert('保存信息成功');
+                    window.location.reload();
+                } else {
+                    alert('保存信息失败');
+                }
+            });
+        }
+        //生成二维码点击事件
+        function showQR_Click() {
+            //生成二维码
+            var name = $('#name').val();
+            if (name == '') {
+                alert('请填写用户相关信息');
+            } else {
+                createQRCode(name);
+
+            }
+        }
+        //下载二维码
+        function download() {
+            var name = $('#name').val();
+            // 获取base64的图片节点
+            var img = document.getElementById('qrcode').getElementsByTagName('canvas')[0];
+            // 构建画布
+            var canvas = document.createElement('canvas');
+            canvas.width = img.width;
+            canvas.height = img.height;
+            canvas.getContext('2d').drawImage(img, 0, 0);
+            // 构造url
+            var imageData = canvas.toDataURL('image/png');
+            // 构造a标签并模拟点击
+            var downloadLink = document.createElement('a');
+            downloadLink.setAttribute('href', imageData);
+            downloadLink.setAttribute('download', name + '.png');
+            downloadLink.click();
+        }
+        //显示详细信息
+        function ShowItem(id, name, phone, location, cust_name, pwd) {
+            //修改target的值
+            $('#target').val(id);
+            $('#name').val(name);
+            $('#phone').val(phone);
+            $('#location').val(location);
+            $('#cust_name').val(cust_name);
+            $('#pwd').val(pwd);
+            createQRCode(name);
+        }
+        //清空详细信息区域
+        function clearItem() {
+            //修改target的值
+            $('#target').val('-1');
+            $('#name').val('');
+            $('#phone').val('');
+            $('#location').val('');
+            $('#cust_name').val('');
+            $('#pwd').val('');
+            $('#qrcode').empty();
+            $('#btn_downloadGray').css('display', 'block');
+            $('#btn_download').css('display', 'none');
+        }
+        //生成二维码并显示
+        function createQRCode(name) {
+            $('#qrcode').empty();
+            var url = 'http://192.168.0.60:60/online?name=' + name;
+            $("#qrcode").qrcode({
+                render: "canvas",    //设置渲染方式，有table和canvas，使用canvas方式渲染性能相对来说比较好
+                text: url,    //扫描二维码后显示的内容,可以直接填一个网址，扫描二维码后自动跳向该链接
+                width: "175",               //二维码的宽度
+                height: "175",              //二维码的高度
+                background: "#ffffff",       //二维码的后景色
+                foreground: "#000000",      //二维码的前景色
+                src: '../Content/image/logo_qrcode.jpg' //二维码中间的图片
+            });
+            $('#btn_downloadGray').css('display', 'none');
+            $('#btn_download').css('display', 'block');
+        }
+        //删除
+        function remove(id) {
+            var data = {
+                'id': id
+            };
+            $.post('/Staff/Remove', data, res => {
+                if (res.state == 1) {
+                    alert('删除成功');
+                    window.location.reload();
+                } else {
+                    alert('删除失败');
+                }
+            });
+        }
+        //批量删除
+        function removeList() {
+            var list = [];
+            $('input[name="check_id"]').each((index, item) => {
+                var tl = $(item).is(':checked');
+                if (tl) {
+                    var id = $(item).val();
+                    list.push(id);
+                }
+            })
+            if (list.length == 0) {
+                alert('请选择要删除的对象');
+                return;
+            }
+            var data = {
+                'list': list
+            };
+            $.post('/Staff/RemoveMany', data, res => {
+                if (res.state == 1) {
+                    alert('删除成功');
+                    window.location.reload();
+                } else {
+                    alert('删除失败');
+                }
+            });
+        }
+        //搜索
+        function search() {
+            //获取搜索参数
+            var txt = $('#test6').val();
+            var start = txt.length == 0 ? "" : txt.split(' - ')[0];
+            var end = txt.length == 0 ? "" : txt.split(' - ')[1];
+            var name = $('#search_name').val();
+            var phone = $('#search_phone').val();
+            if (start == "" && end == "" && name == "" && phone == "") {
+                //清空搜索
+                window.location.href = "/sys/Staff";
+            } else {
+                //请求接口
+                var data = {
+                    'first': start,
+                    'end': end,
+                    'name': name,
+                    'phone': phone
+                };
+                $.post('/Staff/QueryUrl', data, res => {
+                    if (res.state == 1) {
+                        window.location.href = res.data;
+                    } else {
+                        alert(res.message);
+                    }
+                })
+            }
+
+        }
+    </script>
+}

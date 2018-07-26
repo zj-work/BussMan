@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>艾雪文化</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta content="telephone=no" name="format-detection">
+    <meta name="viewport" content="user-scalable=no,width=device-width, initial-scale=1.0">
+    <!--公用-->
+    <link rel="stylesheet" type="text/css" href="~/Content/disp/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/disp/css/sidebar.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/disp/css/swiper.min.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/disp/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/disp/css/wtaos.css">
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/disp/images/favicon.ico" />
+</head>
+<body aos-easing="ease-out-back" aos-duration="1000" aos-delay="0">
+    <div class="clearfix indexTop">
+        <div class="clearfix mobile_header hidden-md hidden-lg">
+            <a class="topLogo" href="index.html" title="艾雪文化"></a>
+            <span class="menuIcon deploy-right-sidebar"></span>
+        </div>
+        <div class="sidebar-right">
+            <div class="sidebar-scroll-right">
+                <div class="sidebar-header-left"> <a href="#" class="close-sidebar-right"></a> </div>
+                <div class="sidebarLogo"></div>
+                <div class="sidebarText">艾雪文化</div>
+                <ul class="menu">
+                    <li class="on"><a href="/index">首页</a></li>
+                    <li class="navs">
+                        <a href="/project" onclick="javascript:doClick($(this))">项目简介<b class="caret"></b></a>
+                        <ul class="leftNavCont" style="display:none;">
+                            <li><a href="/proj/coin">创业梦工厂</a></li>
+                            <li><a href="/proj/advert">央视广告</a></li>
+                            <li><a href="/proj/media">主流媒体宣传</a></li>
+                            <li><a href="/proj/center">中央观众赠票</a></li>
+                            <li><a href="/proj/meeting">高端会议</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="/affair">商务合作企业</a></li>
+                    <li class="navs">
+                        <a onclick="javascript:doClick($(this))">联系我们<b class="caret"></b></a>
+                        <ul class="leftNavCont" style="display:none;">
+                            <li><a href="/info">公司简介</a></li>
+                            <li><a href="/joinus">加入我们</a></li>
+                            <li><a href="/contact">联系我们</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container clearFix headerPub">
+        <div class="fl leftLogo">
+            <a href="index.html"><img src="~/Content/disp/images/logopub.png" width="200" height="69" alt="艾雪文化"></a>
+            <p>
+                增强中国声音传播能力<br />
+                丰富社会大众精神文化生活
+            </p>
+        </div>
+        <div class="fr rightEwm">
+            <div class="fl"><img src="~/Content/disp/images/ewm.jpg" width="69" height="69" alt="艾雪文化" /></div>
+            <p><i>扫一扫</i><em>关注官方微信</em></p>
+        </div>
+    </div>
+    <div class="navBg">
+        <div class="g-wrap container" style="z-index:101;">
+            <ul class="clearFix mainNav">
+                <li><a class="mainNavCurrent" href="/index">首页</a></li>
+                <li>
+                    <a href="/project">项目简介</a>
+                    <div class="hiddenNavBox">
+                        <div class="hiddenNav">
+                            <a href="/proj/coin">创业梦工厂</a>
+                            <a href="/proj/advert">央视广告</a>
+                            <a href="/proj/media">主流媒体宣传</a>
+                            <a href="/proj/center">中央观众赠票</a>
+                            <a href="/proj/meeting">高端会议</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="/affair">商务合作企业</a></li>
+                <li>
+                    <a href="/contact">联系我们</a>
+                    <div class="hiddenNavBox">
+                        <div class="hiddenNav">
+                            <a href="/info">公司简介</a>
+                            <a href="/joinus">加入我们</a>
+                            <a href="/contact">联系我们</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <a class="rightLogin" href="/sys/index">管理员登录</a>
+        </div>
+    </div>
+    @RenderBody()
+    <!--底部-->
+    <div class="footer">
+        <div class="container">
+            <div class="footerLogo"><img src="~/Content/disp/images/logofoot.png" /></div>
+            <div class="footerNav">
+                <div class="clearFix footerLink">
+                    <a href="index.html" title="首页" rel="nofollow" target="_blank">首页</a> <a href="project.html" title="项目简介" rel="nofollow" target="_blank">项目简介</a> <a href="cooperate.html" title="商务合作企业" rel="nofollow" target="_blank">商务合作企业</a> <a style="border:none;" href="contact.html" title="联系我们" rel="nofollow" target="_blank">联系我们</a>
+                </div>
+                <p class="footerTip">技术支持：<a href="http://www.chinawutong.com/" title="中国物通网" target="_blank">中国物通网</a>-专业的一站式物流信息网  百度统计  Copyright &copy; <span class="pDate"></span>  艾雪文化  版权所有</p>
+            </div>
+        </div>
+    </div>
+    <div class="footerWap">
+        <div class="copyRightCont">Copyright &copy; <span class="pDate"></span>  艾雪文化  版权所有</div>
+    </div>
+    <ul class="ceBianLian cbnav" id="cbl">
+        <li class="cbKeFu">
+            <a class="rightSidebar1">
+                <p>客服</p>
+            </a>
+            <div class="rightBarHidden">
+                <div class="item">
+                    <p>电话：137-8888-8888</p>
+                    <p>邮箱：beijingaixue@163.com</p>
+                </div>
+            </div>
+        </li>
+        <li>
+            <a class="rightSidebar2 dialogClickBtn" href="online.html">
+                <p>留言</p>
+            </a>
+        </li>
+        <li class="elevator_top" style="display:none"> <a href="contact.html" class="rightSidebar3"></a> </li>
+    </ul>
+    <!--公用-->
+    <script type="text/javascript" src="~/Content/disp/js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="~/Content/disp/js/jquery-ui-min.js"></script>
+    <script type="text/javascript" src="~/Content/disp/js/custom.js"></script>
+    <!--独立 首页动效-->
+    <script type="text/javascript" src="~/Content/disp/js/wtaos.js"></script>
+    <script type="text/javascript" src="~/Content/disp/js/scroll.js"></script>
+    <script type="text/javascript" src="~/Content/disp/js/swiper.min.js"></script>
+    <script type="text/javascript">
+
+    </script>
+    <!--公用-->
+    <script type="text/javascript">
+        //侧栏导航
+        function doClick(obj) {
+            obj.siblings('ul.leftNavCont').toggle();
+        }
+        //动效
+        AOS.init({
+            easing: 'ease-out-back',
+            duration: 1000
+        });
+
+
+        //返回顶部
+        $(function () {
+            $(window).scroll(function () {
+                var scrollt = $(window).scrollTop();
+                if (scrollt > 100) {
+                    $(".elevator_top").show();
+                } else {
+                    $(".elevator_top").stop().hide();
+                }
+            });
+            $(".elevator_top").click(function () {
+                $("html,body").animate({ scrollTop: "0" }, 200);
+                return false;
+            });
+        });
+        //年份
+        $(function () {
+            var date = new Date();
+            var year = date.getFullYear();
+            $(".pDate").html(year);
+        })
+    </script>
+</body>
+</html>
+

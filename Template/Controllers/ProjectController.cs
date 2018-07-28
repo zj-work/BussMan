@@ -61,15 +61,5 @@ namespace Template.Controllers
             return Json(res);
         }
 
-        public ActionResult ProjInfo()
-        {
-            return View();
-        }
-
-        public ActionResult Proj_Detail(string kind)
-        {
-            return View();
-        }
-
     }
 }

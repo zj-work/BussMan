@@ -124,6 +124,11 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CooperateController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\Diaplay\Disp_BaseController.cs" />
+    <Compile Include="Controllers\Diaplay\Disp_CoopController.cs" />
+    <Compile Include="Controllers\Diaplay\Disp_HomeController.cs" />
+    <Compile Include="Controllers\Diaplay\Disp_JoinUsController.cs" />
+    <Compile Include="Controllers\Diaplay\Dis_PeojectController.cs" />
     <Compile Include="Controllers\Diaplay\IndexController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JoinUsController.cs" />
@@ -138,6 +143,12 @@
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\CooperModel.cs" />
     <Compile Include="Models\CustomerModel.cs" />
+    <Compile Include="Models\Disp\ComPageModel.cs" />
+    <Compile Include="Models\Disp\CoopPageModel.cs" />
+    <Compile Include="Models\Disp\Disp_BaseModel.cs" />
+    <Compile Include="Models\Disp\IndexPageModel.cs" />
+    <Compile Include="Models\Disp\JoinUsPageModel.cs" />
+    <Compile Include="Models\Disp\ProjectPageModel.cs" />
     <Compile Include="Models\IndexModel.cs" />
     <Compile Include="Models\JoinUsModel.cs" />
     <Compile Include="Models\MenuItem.cs" />
@@ -837,6 +848,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Disp_Base\" />
     <Folder Include="Views\Util\" />
   </ItemGroup>
   <ItemGroup>
@@ -962,6 +974,24 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Index\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Dis_Peoject\ProjInfo.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Dis_Peoject\Proj_Detail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Disp_Coop\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Disp_Home\Info.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Disp_JoinUs\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Disp_Home\Message.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

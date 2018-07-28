@@ -1,14 +1,22 @@
 ﻿
 @{
-    ViewBag.Title = "首页";
     Layout = "~/Views/Shared/_DispLayout.cshtml";
 }
+@model Template.Models.IndexPageModel
+
 <div class="banner">
     <div class="slider">
         <ul class="slider-main">
-            <li class="slider-panel img1" style="background-image:url(../../Content/disp/images/banner1.jpg);"></li>
-            <li class="slider-panel img2" style="background-image:url(../../Content/disp/images/banner2.jpg);"></li>
-            <li class="slider-panel img3" style="background-image:url(../../Content/disp/images/banner3.jpg);"></li>
+            @if (Model.banners.Count > 0)
+            {
+                int n = 0;
+                foreach (var item in Model.banners)
+                {
+                    n++;
+                    string cl = "img" + n;
+                    <li class="slider-panel @cl" style="background-image:url(@item);"></li>
+                }
+            }
         </ul>
         <div class="slider-extra">
             <ul class="slider-nav">
@@ -31,8 +39,8 @@
         <div class="row">
             <div class="fl introText aos-init aos-animate" aos="fade-right" aos-delay="100">
                 <div class="leftTit"><em>艾雪文化</em><i>/ AIXUE CULTURE</i></div>
-                <p>北京艾雪文化传播有限公司《企宣会》致力于通过国家级先进电视、网络媒体文化传播平台，增强中国声音传播能力，丰富社会大众精神文化生活，同时向客户提供包括本公司的“企业推广、电视广告、软文推广、互联网广告、高端会议、企业活动策划” 等在内的产品或服务合作。 基于国内......</p>
-                <a class="indexMoreBtn chaKanBtn" href="company.html">了解更多</a>
+                <p>@Model.ComInfo</p>
+                <a class="indexMoreBtn chaKanBtn" href="/info">了解更多</a>
             </div>
             <div class="fl proImgIndex aos-init aos-animate" aos="fade-left" aos-delay="100">
                 <div class="videoBox"></div>
@@ -47,32 +55,32 @@
             <ul class="clearfix productList">
                 <li class="proItem col-md-4 col-sm-4 col-xs-6 aos-init aos-animate" aos="fade-down" aos-delay="100">
                     <div class="projectCont">
-                        <a class="proPic" title="创业梦工厂" href="projectDetail.html"><img src="~/Content/disp/images/img1.jpg" alt="创业梦工厂" /></a>
-                        <a title="创业梦工厂" href="projectDetail.html" class="proTit "><em>创业梦工厂</em><i>Entrepreneurship Factory</i></a>
+                        <a class="proPic" title="创业梦工厂" href="/proj/coin"><img src="~/Content/disp/images/img1.jpg" alt="创业梦工厂" /></a>
+                        <a title="创业梦工厂" href="/proj/coin" class="proTit "><em>创业梦工厂</em><i>Entrepreneurship Factory</i></a>
                     </div>
                 </li>
                 <li class="proItem col-md-4 col-sm-4 col-xs-6 aos-init aos-animate" aos="fade-down" aos-delay="200">
                     <div class="projectCont">
-                        <a class="proPic" title="央视广告" href="projectDetail.html"> <img src="~/Content/disp/images/img2.jpg" alt="央视广告" /> </a>
-                        <a title="央视广告" href="projectDetail.html" class="proTit"><em>央视广告</em><i>CCTV Advertising</i></a>
+                        <a class="proPic" title="央视广告" href="/proj/advert"> <img src="~/Content/disp/images/img2.jpg" alt="央视广告" /> </a>
+                        <a title="央视广告" href="/proj/advert" class="proTit"><em>央视广告</em><i>CCTV Advertising</i></a>
                     </div>
                 </li>
                 <li class="proItem col-md-4 col-sm-4 col-xs-6 aos-init aos-animate" aos="fade-down" aos-delay="300">
                     <div class="projectCont">
-                        <a class="proPic" title="主流媒体宣传" href="projectDetail.html"> <img src="~/Content/disp/images/img3.jpg" alt="主流媒体宣传" /> </a>
-                        <a title="主流媒体宣传" href="projectDetail.html" class="proTit "><em>主流媒体宣传</em><i>Mainstream media outreach</i></a>
+                        <a class="proPic" title="主流媒体宣传" href="/proj/media"> <img src="~/Content/disp/images/img3.jpg" alt="主流媒体宣传" /> </a>
+                        <a title="主流媒体宣传" href="/proj/media" class="proTit "><em>主流媒体宣传</em><i>Mainstream media outreach</i></a>
                     </div>
                 </li>
                 <li class="proItem col-md-4 col-sm-4 col-xs-6 aos-init aos-animate" aos="fade-down" aos-delay="100">
                     <div class="projectCont">
-                        <a class="proPic" title="中央观众赠票" href="projectDetail.html"> <img src="~/Content/disp/images/img4.jpg" alt="中央观众赠票" /> </a>
-                        <a title="中央观众赠票" href="projectDetail.html" class="proTit "><em>中央观众赠票</em><i>Central audience ticket</i></a>
+                        <a class="proPic" title="中央观众赠票" href="/proj/center"> <img src="~/Content/disp/images/img4.jpg" alt="中央观众赠票" /> </a>
+                        <a title="中央观众赠票" href="/proj/center" class="proTit "><em>中央观众赠票</em><i>Central audience ticket</i></a>
                     </div>
                 </li>
                 <li class="proItem col-md-4 col-sm-4 col-xs-6 aos-init aos-animate" aos="fade-down" aos-delay="300">
                     <div class="projectCont">
-                        <a class="proPic" title="高端会议" href="projectDetail.html"> <img src="~/Content/disp/images/img5.jpg" alt="高端会议" /> </a>
-                        <a title="高端会议" href="projectDetail.html" class="proTit "><em>高端会议</em><i>High-end meetings</i></a>
+                        <a class="proPic" title="高端会议" href="/proj/meeting"> <img src="~/Content/disp/images/img5.jpg" alt="高端会议" /> </a>
+                        <a title="高端会议" href="/proj/meeting" class="proTit "><em>高端会议</em><i>High-end meetings</i></a>
                     </div>
                 </li>
             </ul>
@@ -83,72 +91,17 @@
     <div class="pubTit aos-init aos-animate" aos="zoom-in" id="03"> <img src="~/Content/disp/images/indextit3.png" /> </div>
     <div class="container cooperateBox">
         <div class="picbox">
-
             <ul class="piclist mainlist">
-                <li class="goodlist">
-                    <a title="北京物通"><img class="pics" src="~/Content/disp/images/cooperate1.jpg" /></a>
-                    <p>北京物通1</p>
-                </li>
-                <li class="goodlist">
-                    <a title="北京物通"><img class="pics" src="~/Content/disp/images/cooperate1.jpg" /></a>
-                    <p>北京物通</p>
-                </li>
-                <li class="goodlist">
-                    <a title="北京物通"><img class="pics" src="~/Content/disp/images/cooperate1.jpg" /></a>
-                    <p>北京物通</p>
-                </li>
-                <li class="goodlist">
-                    <a title="北京物通"><img class="pics" src="~/Content/disp/images/cooperate1.jpg" /></a>
-                    <p>北京物通</p>
-                </li>
-                <li class="goodlist">
-                    <a title="北京物通"><img class="pics" src="~/Content/disp/images/cooperate1.jpg" /></a>
-                    <p>北京物通</p>
-                </li>
-                <li class="goodlist">
-                    <a title="北京物通"><img class="pics" src="~/Content/disp/images/cooperate1.jpg" /></a>
-                    <p>北京物通</p>
-                </li>
-                <li class="goodlist">
-                    <a title="北京物通"><img class="pics" src="~/Content/disp/images/cooperate1.jpg" /></a>
-                    <p>北京物通</p>
-                </li>
-                <li class="goodlist">
-                    <a title="北京物通"><img class="pics" src="~/Content/disp/images/cooperate1.jpg" /></a>
-                    <p>北京物通</p>
-                </li>
-                <li class="goodlist">
-                    <a title="北京物通"><img class="pics" src="~/Content/disp/images/cooperate1.jpg" /></a>
-                    <p>北京物通2</p>
-                </li>
-                <li class="goodlist">
-                    <a title="北京物通"><img class="pics" src="~/Content/disp/images/cooperate1.jpg" /></a>
-                    <p>北京物通</p>
-                </li>
-                <li class="goodlist">
-                    <a title="北京物通"><img class="pics" src="~/Content/disp/images/cooperate1.jpg" /></a>
-                    <p>北京物通</p>
-                </li>
-                <li class="goodlist">
-                    <a title="北京物通"><img class="pics" src="~/Content/disp/images/cooperate1.jpg" /></a>
-                    <p>北京物通</p>
-                </li>
-                <li class="goodlist">
-                    <a title="北京物通"><img class="pics" src="~/Content/disp/images/cooperate1.jpg" /></a>
-                    <p>北京物通</p>
-                </li>
-                <li class="goodlist">
-                    <a title="北京物通"><img class="pics" src="~/Content/disp/images/cooperate1.jpg" /></a>
-                    <p>北京物通</p>
-                </li>
-                <li class="goodlist">
-                    <a title="北京物通"><img class="pics" src="~/Content/disp/images/cooperate1.jpg" /></a>
-                    <p>北京物通</p>
-                </li>
-                <li class="goodlist">
-                    <a title="北京物通"><img class="pics" src="~/Content/disp/images/cooperate1.jpg" /></a>
-                    <p>北京物通</p>
-                </li>
+                @if (Model.coopers.Count > 0)
+                {
+                    foreach (var item in Model.coopers)
+                    {
+                        <li class="goodlist">
+                            <a title="@item.name"><img class="pics" src="@item.logo" /></a>
+                            <p>@item.name</p>
+                        </li>
+                    }
+                }
             </ul>
 
         </div>
@@ -161,9 +114,9 @@
     <div class="container">
         <div class="joinUsTip">加入我们 Join Us  一起来改变自己 世界很大，我们很小，在工作中去发现这个世界的美丽，终会将我们也变成最美丽的自己 一起去改变他们 世界这么美，他们却总是错过...</div>
         <ul class="clearFix joinUsList">
-            <li class="aos-init aos-animate" aos="fade-down" aos-delay="100"><a href="joinus.html" title="加入条件"><img src="~/Content/disp/images/indexicon1.png" /><p>加入条件</p></a></li>
-            <li class="aos-init aos-animate" aos="fade-down" aos-delay="200"><a href="joinus.html" title="加入任务"><img src="~/Content/disp/images/indexicon2.png" /><p>加入任务</p></a></li>
-            <li class="aos-init aos-animate" aos="fade-down" aos-delay="300"><a href="joinus.html" title="退出机制"><img src="~/Content/disp/images/indexicon3.png" /><p>退出机制</p></a></li>
+            <li class="aos-init aos-animate" aos="fade-down" aos-delay="100"><a href="/joinus" title="加入条件"><img src="~/Content/disp/images/indexicon1.png" /><p>加入条件</p></a></li>
+            <li class="aos-init aos-animate" aos="fade-down" aos-delay="200"><a href="/joinus" title="加入任务"><img src="~/Content/disp/images/indexicon2.png" /><p>加入任务</p></a></li>
+            <li class="aos-init aos-animate" aos="fade-down" aos-delay="300"><a href="/joinus" title="退出机制"><img src="~/Content/disp/images/indexicon3.png" /><p>退出机制</p></a></li>
         </ul>
     </div>
 </div>
@@ -171,47 +124,68 @@
     <div class="pubTit aos-init aos-animate" aos="zoom-in" id="05"> <img src="~/Content/disp/images/indextit5.png" /> </div>
     <div class="container introBox liuYanBox">
         <div class="leftContacts aos-init aos-animate" aos="fade-right" aos-delay="100">
-            <h3>北京艾雪文化传播有限公司</h3>
-            <img src="~/Content/disp/images/ewm.jpg" />
+            <h3>@Model._com.ComName</h3>
+            <img src="@Model._com.Wx" />
             <p>扫一扫  关注公众号</p>
-            <div class="tell">137-8888-8888</div>
+            <div class="tell">@Model._com.Phone</div>
         </div>
 
         <div class="indexOnline aos-init aos-animate" aos="fade-left" aos-delay="100">
+            <input type="hidden" id="inviter" value="" />
             <dl class="liuYan50">
                 <dt><i>*</i>姓名：</dt>
                 <dd>
-                    <input name="" type="text" class="grayInput" />
+                    <input id="name" name="" type="text" class="grayInput" />
                 </dd>
             </dl>
             <dl class="liuYan50">
                 <dt><i>*</i>电话：</dt>
                 <dd>
-                    <input name="" type="text" class="grayInput" />
+                    <input id="phone" name="" type="text" class="grayInput" />
                 </dd>
             </dl>
             <dl style="clear:both;">
                 <dt>所在地区：</dt>
                 <dd>
-                    <input name="" type="text" class="grayInput" />
-                </dd>
-            </dl>
-            <dl>
-                <dt>邀请人：</dt>
-                <dd>
-                    <input name="" type="text" class="grayInput" />
+                    <input id="location" name="" type="text" class="grayInput" />
                 </dd>
             </dl>
             <dl class="liuYan">
                 <dt>留言内容：</dt>
                 <dd>
-                    <textarea class="grayInput" name="" cols="" rows=""></textarea>
+                    <textarea id="content" class="grayInput"></textarea>
                 </dd>
             </dl>
             <div class="saveBtnBox">
-                <input name="" type="button" value="提交留言" />
+                <input name="" type="button" value="提交留言" onclick="leaveMessage()" />
             </div>
-
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    //留言
+    function leaveMessage() {
+        var id = '-1';
+        var name = $('#name').val();
+        var phone = $('#phone').val();
+        var location = $('#location').val();
+        var owner = $('#inviter').val();
+        var content = $('#content').val();
+        var data = {
+            'id': id,
+            'name': name,
+            'phone': phone,
+            'location': location,
+            'owner': owner,
+            'Content': content
+        };
+        $.post('/Disp_Home/Save', data, res => {
+            if (res.state == 1) {
+                alert('留言成功');
+                window.location.reload();
+            } else {
+                alert('留言失败');
+            }
+        });
+    }
+</script>

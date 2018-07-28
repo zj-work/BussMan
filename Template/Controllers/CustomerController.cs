@@ -132,7 +132,7 @@ namespace Template.Controllers
             {
                 model.time = DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss");
                 model.state = "0";
-                model.Content = "";
+                model.Content = Common.CommonFun.IsEmpty(model.Content) ? "" : model.Content;
                 bool res = _bll.SaveModel(model);
                 if (res)
                 {

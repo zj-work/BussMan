@@ -220,7 +220,7 @@
         //生成二维码并显示
         function createQRCode(name) {
             $('#qrcode').empty();
-            var url = 'http://192.168.0.60:60/online?name=' + name;
+            var url = 'http://192.168.0.60:60/contact?inviter=' + name;
             $("#qrcode").qrcode({
                 render: "canvas",    //设置渲染方式，有table和canvas，使用canvas方式渲染性能相对来说比较好
                 text: url,    //扫描二维码后显示的内容,可以直接填一个网址，扫描二维码后自动跳向该链接

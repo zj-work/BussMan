@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewBag.Title = "Info";
+    Layout = "~/Views/Shared/_DispLayout.cshtml";
+}
+@model Template.Models.ComPageModel
+<!--main-->
+<div class="subBanner"></div>
+<div class="pubTit pubTit60"> <img src="~/Content/disp/images/indextit1.png" /> </div>
+<div class="container subCont">
+    <div class="companyIntro">
+        @Html.Raw(Model._com.ComInfo)
+    </div>
+</div>
+

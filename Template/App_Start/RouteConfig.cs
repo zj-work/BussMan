@@ -35,17 +35,18 @@ namespace Template
 
             routes.MapRoute("图片上传", "upload", new { controller = "Util", action = "Upload" });
 
-            routes.MapRoute("前台首页", "index", new { controller = "Index", action = "Index" });
-            routes.MapRoute("项目简介", "project", new { controller = "Project", action = "ProjInfo" });
-            routes.MapRoute("创业梦工厂", "proj/coin", new { controller = "Project", action = "Proj_Detail",kind="coin" });
-            routes.MapRoute("央视广告", "proj/advert", new { controller = "Project", action = "Proj_Detail", kind = "advert" });
-            routes.MapRoute("主流媒体宣传", "proj/media", new { controller = "Project", action = "Proj_Detail", kind = "media" });
-            routes.MapRoute("中央观众赠票", "proj/center", new { controller = "Project", action = "Proj_Detail", kind = "center" });
-            routes.MapRoute("高端会议", "proj/meeting", new { controller = "Project", action = "Proj_Detail", kind = "meeting" });
-            routes.MapRoute("商务合作企业", "affair", new { controller = "Cooperate", action = "Index" });
-            routes.MapRoute("公司简介", "info", new { controller = "Home", action = "Info" });
-            routes.MapRoute("加入我们", "joinus", new { controller = "JoinUs", action = "Index" });
-            routes.MapRoute("联系我们", "contact", new { controller = "Home", action = "Message" });
+            routes.MapRoute("前台首页S", "index", new { controller = "Index", action = "Index" });
+            routes.MapRoute("项目简介S", "project", new { controller = "Dis_Peoject", action = "ProjInfo" });
+            routes.MapRoute("创业梦工厂S", "proj/coin", new { controller = "Dis_Peoject", action = "Proj_Detail",kind="coin" });
+            routes.MapRoute("央视广告S", "proj/advert", new { controller = "Dis_Peoject", action = "Proj_Detail", kind = "advert" });
+            routes.MapRoute("主流媒体宣传S", "proj/media", new { controller = "Dis_Peoject", action = "Proj_Detail", kind = "media" });
+            routes.MapRoute("中央观众赠票S", "proj/center", new { controller = "Dis_Peoject", action = "Proj_Detail", kind = "center" });
+            routes.MapRoute("高端会议S", "proj/meeting", new { controller = "Dis_Peoject", action = "Proj_Detail", kind = "meeting" });
+            routes.MapRoute("商务合作企业S", "affair", new { controller = "Disp_Coop", action = "Index", pageIndex = 1 });
+            routes.MapRoute("商务合作企业搜索S", "affair/p{pageIndex}", new { controller = "Disp_Coop", action = "Index",pageIndex = UrlParameter.Optional });
+            routes.MapRoute("公司简介S", "info", new { controller = "Disp_Home", action = "Info" });
+            routes.MapRoute("加入我们S", "joinus", new { controller = "Disp_JoinUs", action = "Index" });
+            routes.MapRoute("联系我们S", "contact", new { controller = "Disp_Home", action = "Message" });
 
 
             routes.MapRoute(

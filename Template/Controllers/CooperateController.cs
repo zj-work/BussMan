@@ -13,16 +13,17 @@ namespace Template.Controllers
     {
 
         private CooperBLL _bll = new CooperBLL();
+        private int pageNum = 5;
 
         // GET: Cooperate
         public ActionResult CooperManage(int pid = 1)
         {
             Init();
             pageModel.currentMenu = 6;
-            List<t_cooperation> list = _bll.GetCooperByIndex(pid);
+            List<t_cooperation> list = _bll.GetCooperByIndex(pid,pageNum);
             pageModel.currentIndex = pid;
             pageModel.list = list;
-            pageModel.pageCount = _bll.GetPageCount();
+            pageModel.pageCount = _bll.GetPageCount(pageNum);
             string url = "/sys/Affair";
             pageModel.PageUI = CreatePageUI(url, pageModel.currentIndex, pageModel.pageCount);
             return View(pageModel);

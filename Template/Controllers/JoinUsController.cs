@@ -63,6 +63,7 @@ namespace Template.Controllers
 
         public ActionResult Index()
         {
+
             return View();
         }
 

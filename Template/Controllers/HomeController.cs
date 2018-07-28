@@ -85,5 +85,27 @@ namespace Template.Controllers
         {
             return View();
         }
+
+        /// <summary>
+        /// 退出登录
+        /// </summary>
+        /// <returns></returns>
+        public JsonResult Exit()
+        {
+            object res = new { };
+            if(Session["UserInfo"] != null)
+            {
+                Session.Remove("UserInfo");
+            }
+            if(Session["UserInfo"] == null)
+            {
+                res = new { state = 1, data = new { }, message = "" };
+            }
+            else
+            {
+                res = new { state = 0, data = new { }, message = "" };
+            }
+            return Json(res);
+        }
     }
 }

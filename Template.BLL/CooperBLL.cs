@@ -11,21 +11,31 @@ namespace Template.BLL
     public class CooperBLL
     {
         private CooperDAL _dal = new CooperDAL();
-        private int pageCount = 5;
+
         /// <summary>
         /// 后台管理--合作客户列表
         /// </summary>
         /// <param name="pageIndex"></param>
         /// <returns></returns>
-        public List<t_cooperation> GetCooperByIndex(int pageIndex)
+        public List<t_cooperation> GetCooperByIndex(int pageIndex,int pageSize)
         {
-            int firstIndex = (pageIndex - 1) * pageCount + 1;
-            int endIndex = pageIndex * pageCount;
+            int firstIndex = (pageIndex - 1) * pageSize + 1;
+            int endIndex = pageIndex * pageSize;
             List<t_cooperation> model = _dal.GetCooperWithoutCondition(firstIndex, endIndex);
             return model;
         }
 
-        public int GetPageCount()
+        public List<t_cooperation> GetAllCooper()
+        {
+            return _dal.GetALLCooper();
+        }
+
+        /// <summary>
+        /// 页面容量
+        /// </summary>
+        /// <param name="pageCount"></param>
+        /// <returns></returns>
+        public int GetPageCount(int pageCount)
         {
             int num = _dal.GetInfoNum();
             if(num % pageCount == 0)

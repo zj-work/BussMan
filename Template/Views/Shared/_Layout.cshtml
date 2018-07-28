@@ -28,7 +28,7 @@
                     <div class="main-search">
                         <div class="input-wrap">
                             <input class="form-control" type="text" placeholder="Search Here...">
-                            <a href="page-search.html"><i class="sli-magnifier"></i></a>
+                            <a href="/sys/index"><i class="sli-magnifier"></i></a>
                         </div>
                         <span class="close-search search-toggle"><i class="ti-close"></i></span>
                     </div>
@@ -38,7 +38,7 @@
                 <button type="button" class="navbar-toggle side-nav-toggle">
                     <i class="ti-align-left"></i>
                 </button>
-                <a class="navbar-brand" href="index.html">
+                <a class="navbar-brand" href="/sys/index">
                     <img src="~/Content/assets/images/logo.png">
                 </a>
                 <ul class="nav navbar-nav-xs">
@@ -68,7 +68,7 @@
                     </li>
 
                     <li class="dropdown">
-                        <a href="manageCustomer.html">
+                        <a href="/contact" target="_blank">
                             <i class="sli-bell"></i>
                             <span>客户留言</span>
                         </a>
@@ -76,8 +76,8 @@
                 </ul>
                 <div class="fr topRight">
                     <a>你好，@Model.loginName </a><span>|</span>
-                    <a href="javascript:();">退出</a><span>|</span>
-                    <a href="" target="_blank">网站首页</a>
+                    <a onclick="exit()">退出</a><span>|</span>
+                    <a href="/index" target="_blank">网站首页</a>
                 </div>
             </div>
             <div class="clearfix"></div>
@@ -146,6 +146,14 @@
             elem: '#test6'
             , range: true
         });
+        //退出登录
+        function exit() {
+            $.post('/Home/Exit', {}, res => {
+                if (res.state == 1) {
+                    window.location.href = '/sys/index';
+                }
+            })
+        }
     </script>
 
     @RenderSection("script", false)

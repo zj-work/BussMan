@@ -1,0 +1,58 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_DispLayout.cshtml";
+}
+@model Template.Models.CoopPageModel
+
+<!--main-->
+<div class="subBanner"></div>
+<div class="pubTit pubTit60"> <img src="~/Content/disp/images/indextit3.png" /> </div>
+<div class="container">
+    <div class="cooperateListWapper">
+        @if (Model.list.Count > 0)
+        {
+            foreach (var item in Model.list)
+            {
+                <div class="cooperateList">
+                    <div class="grayBorder">
+                        <img src="@item.logo">
+                        <div class="cooperateTit">@item.name</div>
+                        <div class="cooperateBg">
+                            <font>@item.name</font>
+                            <p>@item.content</p>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    </div>
+    <div class="pageBox">
+        <div class="subPagination">
+            @Html.Raw(Model.pageUI)
+        </div>
+    </div>
+    <a class="coinMore" onclick="more()">查看更多</a>
+</div>
+
+<script type="text/javascript">
+    function searchPage() {
+        try {
+            var searchIndex = parseInt(document.getElementById('searchIndex').value);
+            var maxIndex = parseInt('@Model.pageCount');
+            if (searchIndex > maxIndex || searchIndex == 'NaN') {
+                alert("请输入有效的页码");
+            } else {
+                window.location.href = "/affair/p" + searchIndex;
+            }
+        } catch(ex){ alert("请输入数字"); }
+    }
+    function more() {
+        var searchIndex = parseInt('@Model.pageIndex') + 1;
+        if (searchIndex > parseInt('@Model.pageCount')) {
+            alert('已经是最后一页了');
+        } else {
+            window.location.href = "/affair/p" + searchIndex;
+        }
+    }
+</script>
+

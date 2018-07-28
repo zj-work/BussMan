@@ -1,0 +1,31 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_DispLayout.cshtml";
+}
+@model Template.Models.JoinUsPageModel
+
+<!--main-->
+<div class="subBanner"></div>
+<div class="pubTit pubTit60"> <img src="~/Content/disp/images/indextit4.png" /> </div>
+<div class="container subCont">
+    <div class="joinBox">
+        <dl class="joinList">
+            <dt><div class="joinListTit"><img src="~/Content/disp/images/indexicon1.png" /><h3>加入条件</h3></div></dt>
+            <dd>
+               @Html.Raw(Model.condition == null?"":Model.condition.content)
+            </dd>
+        </dl>
+        <dl class="joinList">
+            <dt><div class="joinListTit"><img src="~/Content/disp/images/indexicon2.png" /><h3>加入任务</h3></div></dt>
+            <dd>
+                @Html.Raw(Model.task == null ? "" : Model.task.content)
+            </dd>
+        </dl>
+        <dl class="joinList">
+            <dt><div class="joinListTit"><img src="~/Content/disp/images/indexicon3.png" /><h3>退出机制</h3></div></dt>
+            <dd>
+                @Html.Raw(Model.exit == null ? "" : Model.exit.content)
+            </dd>
+        </dl>
+    </div>
+</div>

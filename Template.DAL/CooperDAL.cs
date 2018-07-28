@@ -18,6 +18,12 @@ namespace Template.DAL
             List<t_cooperation> res = Query<t_cooperation>(sql, new { firstIndex = firstIndex, endIndex = endIndex });
             return res;
         }
+        public List<t_cooperation> GetALLCooper()
+        {
+            string sql = @"select * from t_cooperation";
+            List<t_cooperation> res = Query<t_cooperation>(sql, null);
+            return res;
+        }
 
         public int GetInfoNum()
         {

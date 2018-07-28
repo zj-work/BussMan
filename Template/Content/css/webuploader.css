@@ -1,8 +1,10 @@
 .webuploader-container {
     position: relative;
     margin-top: 10px;
+    width: 80px;
+    height: 30px;
+    margin-left: 160px;
 }
-
 .webuploader-element-invisible {
     position: absolute !important;
     clip: rect(1px 1px 1px 1px); /* IE6, IE7 */

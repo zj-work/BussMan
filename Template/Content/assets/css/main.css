@@ -3926,7 +3926,7 @@ h1, .h1, h2, .h2, h3, .h3{margin:0; padding:0;}
 .submitBox .cancelBtn{background:#ddd;}
 .infoLiTxt{border:1px solid #ddd; border-radius:3px; width:300px;}
 .infoLi .infoLiImg{width:127px; height:74px; border:1px solid #ddd; display:inline-block; position:relative; cursor:pointer;}
-.infoLi .infoLiImg img{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);}
+.infoLi .infoLiImg img{position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);width:127px; height:74px;}
 
 /*客户管理*/
 .padding20{padding:20px;}
@@ -3946,6 +3946,7 @@ h1, .h1, h2, .h2, h3, .h3{margin:0; padding:0;}
 .tableList tr:hover{background:#fafafa;}
 .tableList tr th{background:#f1f4f7; text-align:center; border-right:1px solid #f1f4f7;}
 .tableList tr td{text-align:center; border-right:1px solid #f1f4f7; line-height:24px; padding:10px 0;}
+.tableList td .logo {height: 50px;}
 .tableList input[type="radio"], input[type="checkbox"]{padding:0; margin:0;}
 .tableList .deletIcon{cursor:pointer;}
 .pageAnger{width:90%; margin:0 auto; text-align:center;}

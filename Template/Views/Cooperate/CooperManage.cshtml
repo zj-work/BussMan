@@ -38,7 +38,7 @@
                     <tr>
                         <td><input name="check_id" type="checkbox" value="@item.ID" /></td>
                         <td>@item.name</td>
-                        <td><img src="@item.logo" alt="中国物通网"></td>
+                        <td><img src="@item.logo" alt="中国物通网" class="logo"></td>
                         <td>@item.content</td>
                         <td>@item.time</td>
                         <td><a class="deletIcon" onclick="ShowItem('@item.ID','@item.name','@item.logo','@item.content')" data-toggle="modal" data-target="#addCursor"><img src="~/Content/assets/images/reviseIcon.png" alt="修改"></a></td>
@@ -77,7 +77,7 @@
                     <span class="infoLiTit">添加logo</span>
                     <div class="infoLiImg"><img id="logo" src="~/Content/assets/images/defaultLoge.png"></div>
                     <div class="picker">选择</div>
-                    <span style="color:#999; font-size:12px; position:absolute; top:70px;">（建议logo尺寸280*80px）</span>
+                    <span style="color:#999; font-size:12px; position:absolute; top:70px; left:300px;">（建议logo尺寸280*80px）</span>
                 </div>
                 <div class="infoLi">
                     <span class="infoLiTit">客户简介</span>

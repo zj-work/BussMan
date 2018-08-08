@@ -8,9 +8,11 @@
     <h1>我的二维码</h1>
 </div>
 
-<div class="content-wrap modal-bodyRight">
-    <div class="qr-body" id="qrcode"></div>
-    <input type="button" value="下载" id="btn_download" class="submitBtn" onclick="download()" />
+<div class="content-wrap">
+    <div class="mainCon padding20" style="text-align:center; min-height:500px;">
+        <div class="qr-body" id="qrcode"></div>
+        <input type="button" value="下载" id="btn_download" style="color: #fff;border: 0;cursor: pointer; border-radius: 2px; width:100px;height:30px;line-height: 30px;text-align:center; font-size: 15px; margin:10px auto; background:#ff7c66;" onclick="download()" />
+    </div>
 </div>
 
 @section script{

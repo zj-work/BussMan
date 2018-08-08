@@ -382,9 +382,15 @@ margin-top:-4px;border-color:transparent transparent transparent #333;}
 .picbox {width:1080px;height:240px;overflow:hidden; margin:0 auto;position:relative; margin-left:80px;}
 .picbox ul {height:285px;}
 .piclist {position:absolute;left:0;top:0;}
-.piclist li.goodlist {width:230px;margin:0 40px 20px 0;float:left;}
+.piclist li.goodlist {width:230px;margin:0 40px 20px 0;float:left; height:110px;}
+.goodListA{width:230px; height:80px; position:relative; display:block;}
+.goodListA .pics{position:absolute; transform:translate(-50%,-50%); left:50%; top:50%;height:80px;}
 
-.swaplist {position:absolute;left:-3000px;top:0;}
+.swaplist {
+    position: absolute;
+    left: -3000px;
+    top: 0;
+}
 .og_prev, .og_next {position:absolute;top:50%; margin-top:-30px;z-index:99;width:30px;height:60px;background:url(../images/btn.png) no-repeat;cursor:pointer;}
 .og_prev {background-position:0 0;left:30px;}
 .og_prev:hover{background-position:0 -60px;}

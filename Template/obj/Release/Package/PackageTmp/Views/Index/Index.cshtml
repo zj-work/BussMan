@@ -1,0 +1,191 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_DispLayout.cshtml";
+}
+@model Template.Models.IndexPageModel
+
+<div class="banner">
+    <div class="slider">
+        <ul class="slider-main">
+            @if (Model.banners.Count > 0)
+            {
+                int n = 0;
+                foreach (var item in Model.banners)
+                {
+                    n++;
+                    string cl = "img" + n;
+                    <li class="slider-panel @cl" style="background-image:url(@item);"></li>
+                }
+            }
+        </ul>
+        <div class="slider-extra">
+            <ul class="slider-nav">
+                <li class="slider-item slider-item-selected"></li>
+                <li class="slider-item"></li>
+                <li class="slider-item"></li>
+            </ul>
+            <div class="slider-page">
+                <a class="slider-pre" href="javascript:;;">&lt;</a>
+                <a class="slider-next" href="javascript:;;">&gt;</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!--main-->
+<div class="whiteBg">
+    <div class="pubTit aos-init aos-animate" aos="zoom-in" id="01"> <img src="~/Content/disp/images/indextit1.png" /> </div>
+    <div class="container introBox">
+        <div class="row">
+            <div class="fl introText aos-init aos-animate" aos="fade-right" aos-delay="100">
+                <div class="leftTit"><em>艾雪文化</em><i>/ AIXUE CULTURE</i></div>
+                <p>@Model.ComInfo</p>
+                <a class="indexMoreBtn chaKanBtn" href="/info">了解更多</a>
+            </div>
+            <div class="fl proImgIndex aos-init aos-animate" aos="fade-left" aos-delay="100">
+                <div class="videoBox"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="grayBg proPadding">
+    <div class="pubTit aos-init aos-animate" aos="zoom-in" id="02"> <img src="~/Content/disp/images/indextit2.png" /> </div>
+    <div class="container proBox">
+        <div class="row">
+            <ul class="clearfix productList">
+                <li class="proItem col-md-4 col-sm-4 col-xs-6 aos-init aos-animate" aos="fade-down" aos-delay="100">
+                    <div class="projectCont">
+                        <a class="proPic" title="创业梦工厂" href="/proj/coin"><img src="~/Content/disp/images/img1.jpg" alt="创业梦工厂" /></a>
+                        <a title="创业梦工厂" href="/proj/coin" class="proTit "><em>创业梦工厂</em><i>Entrepreneurship Factory</i></a>
+                    </div>
+                </li>
+                <li class="proItem col-md-4 col-sm-4 col-xs-6 aos-init aos-animate" aos="fade-down" aos-delay="200">
+                    <div class="projectCont">
+                        <a class="proPic" title="央视广告" href="/proj/advert"> <img src="~/Content/disp/images/img2.jpg" alt="央视广告" /> </a>
+                        <a title="央视广告" href="/proj/advert" class="proTit"><em>央视广告</em><i>CCTV Advertising</i></a>
+                    </div>
+                </li>
+                <li class="proItem col-md-4 col-sm-4 col-xs-6 aos-init aos-animate" aos="fade-down" aos-delay="300">
+                    <div class="projectCont">
+                        <a class="proPic" title="主流媒体宣传" href="/proj/media"> <img src="~/Content/disp/images/img3.jpg" alt="主流媒体宣传" /> </a>
+                        <a title="主流媒体宣传" href="/proj/media" class="proTit "><em>主流媒体宣传</em><i>Mainstream media outreach</i></a>
+                    </div>
+                </li>
+                <li class="proItem col-md-4 col-sm-4 col-xs-6 aos-init aos-animate" aos="fade-down" aos-delay="100">
+                    <div class="projectCont">
+                        <a class="proPic" title="中央观众赠票" href="/proj/center"> <img src="~/Content/disp/images/img4.jpg" alt="中央观众赠票" /> </a>
+                        <a title="中央观众赠票" href="/proj/center" class="proTit "><em>中央观众赠票</em><i>Central audience ticket</i></a>
+                    </div>
+                </li>
+                <li class="proItem col-md-4 col-sm-4 col-xs-6 aos-init aos-animate" aos="fade-down" aos-delay="300">
+                    <div class="projectCont">
+                        <a class="proPic" title="高端会议" href="/proj/meeting"> <img src="~/Content/disp/images/img5.jpg" alt="高端会议" /> </a>
+                        <a title="高端会议" href="/proj/meeting" class="proTit "><em>高端会议</em><i>High-end meetings</i></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="whiteBg cooperateIndex">
+    <div class="pubTit aos-init aos-animate" aos="zoom-in" id="03"> <img src="~/Content/disp/images/indextit3.png" /> </div>
+    <div class="container cooperateBox">
+        <div class="picbox">
+            <ul class="piclist mainlist">
+                @if (Model.coopers.Count > 0)
+                {
+                    foreach (var item in Model.coopers)
+                    {
+                        <li class="goodlist">
+                            <a title="@item.name"><img class="pics" src="@item.logo" /></a>
+                            <p>@item.name</p>
+                        </li>
+                    }
+                }
+            </ul>
+
+        </div>
+        <div class="og_prev"></div>
+        <div class="og_next"></div>
+    </div>
+</div>
+<div class="grayBg">
+    <div class="pubTit aos-init aos-animate" aos="zoom-in" id="04"> <img src="~/Content/disp/images/indextit4.png" /> </div>
+    <div class="container">
+        <div class="joinUsTip">加入我们 Join Us  一起来改变自己 世界很大，我们很小，在工作中去发现这个世界的美丽，终会将我们也变成最美丽的自己 一起去改变他们 世界这么美，他们却总是错过...</div>
+        <ul class="clearFix joinUsList">
+            <li class="aos-init aos-animate" aos="fade-down" aos-delay="100"><a href="/joinus" title="加入条件"><img src="~/Content/disp/images/indexicon1.png" /><p>加入条件</p></a></li>
+            <li class="aos-init aos-animate" aos="fade-down" aos-delay="200"><a href="/joinus" title="加入任务"><img src="~/Content/disp/images/indexicon2.png" /><p>加入任务</p></a></li>
+            <li class="aos-init aos-animate" aos="fade-down" aos-delay="300"><a href="/joinus" title="退出机制"><img src="~/Content/disp/images/indexicon3.png" /><p>退出机制</p></a></li>
+        </ul>
+    </div>
+</div>
+<div class="whiteBg">
+    <div class="pubTit aos-init aos-animate" aos="zoom-in" id="05"> <img src="~/Content/disp/images/indextit5.png" /> </div>
+    <div class="container introBox liuYanBox">
+        <div class="leftContacts aos-init aos-animate" aos="fade-right" aos-delay="100">
+            <h3>@Model._com.ComName</h3>
+            <img src="@Model._com.Wx" />
+            <p>扫一扫  关注公众号</p>
+            <div class="tell">@Model._com.Phone</div>
+        </div>
+
+        <div class="indexOnline aos-init aos-animate" aos="fade-left" aos-delay="100">
+            <input type="hidden" id="inviter" value="" />
+            <dl class="liuYan50">
+                <dt><i>*</i>姓名：</dt>
+                <dd>
+                    <input id="name" name="" type="text" class="grayInput" />
+                </dd>
+            </dl>
+            <dl class="liuYan50">
+                <dt><i>*</i>电话：</dt>
+                <dd>
+                    <input id="phone" name="" type="text" class="grayInput" />
+                </dd>
+            </dl>
+            <dl style="clear:both;">
+                <dt>所在地区：</dt>
+                <dd>
+                    <input id="location" name="" type="text" class="grayInput" />
+                </dd>
+            </dl>
+            <dl class="liuYan">
+                <dt>留言内容：</dt>
+                <dd>
+                    <textarea id="content" class="grayInput"></textarea>
+                </dd>
+            </dl>
+            <div class="saveBtnBox">
+                <input name="" type="button" value="提交留言" onclick="leaveMessage()" />
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    //留言
+    function leaveMessage() {
+        var id = '-1';
+        var name = $('#name').val();
+        var phone = $('#phone').val();
+        var location = $('#location').val();
+        var owner = $('#inviter').val();
+        var content = $('#content').val();
+        var data = {
+            'id': id,
+            'name': name,
+            'phone': phone,
+            'location': location,
+            'owner': owner,
+            'Content': content
+        };
+        $.post('/Disp_Home/Save', data, res => {
+            if (res.state == 1) {
+                alert('留言成功');
+                window.location.reload();
+            } else {
+                alert('留言失败');
+            }
+        });
+    }
+</script>

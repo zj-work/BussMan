@@ -1,0 +1,15 @@
+F:\代码\项目代码\企业站\Template\Template.BLL\bin\Release\Template.BLL.dll
+F:\代码\项目代码\企业站\Template\Template.BLL\bin\Release\Template.BLL.pdb
+F:\代码\项目代码\企业站\Template\Template.BLL\bin\Release\Template.Common.dll
+F:\代码\项目代码\企业站\Template\Template.BLL\bin\Release\Template.DAL.dll
+F:\代码\项目代码\企业站\Template\Template.BLL\bin\Release\Template.Model.dll
+F:\代码\项目代码\企业站\Template\Template.BLL\bin\Release\Dapper.dll
+F:\代码\项目代码\企业站\Template\Template.BLL\bin\Release\Template.Common.pdb
+F:\代码\项目代码\企业站\Template\Template.BLL\bin\Release\Template.DAL.pdb
+F:\代码\项目代码\企业站\Template\Template.BLL\bin\Release\Template.Model.pdb
+F:\代码\项目代码\企业站\Template\Template.BLL\bin\Release\Dapper.xml
+F:\代码\项目代码\企业站\Template\Template.BLL\obj\Release\Template.BLL.csprojAssemblyReference.cache
+F:\代码\项目代码\企业站\Template\Template.BLL\obj\Release\Template.BLL.csproj.CoreCompileInputs.cache
+F:\代码\项目代码\企业站\Template\Template.BLL\obj\Release\Template.BLL.csproj.CopyComplete
+F:\代码\项目代码\企业站\Template\Template.BLL\obj\Release\Template.BLL.dll
+F:\代码\项目代码\企业站\Template\Template.BLL\obj\Release\Template.BLL.pdb

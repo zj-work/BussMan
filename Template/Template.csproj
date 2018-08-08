@@ -122,6 +122,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\CooperateController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\Diaplay\Disp_BaseController.cs" />
@@ -992,6 +993,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Disp_Home\Message.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\aixue.pubxml" />
+    <Content Include="Views\Client\MyQR.cshtml" />
+    <Content Include="Views\Client\MineCustom.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,14 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_DispLayout.cshtml";
+}
+@model Template.Models.ProjectPageModel
+<!--main-->
+<div class="subBanner"></div>
+<div class="pubTit pubTit60"> <img src="~/Content/disp/images/indextit2.png" /> </div>
+<div class="container subCont">
+    <div class="companyIntro">
+        @Html.Raw(Template.Common.CommonFun.IsEmpty(Model.PageModel) ? "" : Model.PageModel.content)
+    </div>
+</div>
+<!--底部-->

@@ -48,6 +48,11 @@ namespace Template
             routes.MapRoute("加入我们S", "joinus", new { controller = "Disp_JoinUs", action = "Index" });
             routes.MapRoute("联系我们S", "contact", new { controller = "Disp_Home", action = "Message" });
 
+            routes.MapRoute("我的二维码", "sys/MyQR", new { controller = "Client", action = "MyQR" });
+            routes.MapRoute("我的客户管理", "sys/Client", new { controller = "Client", action = "MineCustom" });
+            routes.MapRoute("我的客户管理S", "sys/Client/f{first}t{end}n{owner}p{custom}", new { controller = "Client", action = "MineCustomerSearch", first = UrlParameter.Optional, end = UrlParameter.Optional, owner = UrlParameter.Optional, custom = UrlParameter.Optional });
+
+
 
             routes.MapRoute(
                 name: "Default",

@@ -19,7 +19,7 @@ namespace Template.Controllers
         }
 
         [HttpPost]
-        public JsonResult Login(string name, string pwd)
+        public JsonResult Login(string name, string pwd,string url)
         {
             ResultHandler res = _user.Login(name, pwd);
             if (res.state)
@@ -29,6 +29,37 @@ namespace Template.Controllers
                     Session.Remove("UserInfo");
                 }
                 Session.Add("UserInfo", res.data);
+                t_user item = res.data as t_user;
+                if (CommonFun.IsEmpty(url))
+                {
+                    if ("General".Equals(item.Type))
+                    {
+                        res.url = "sys/MyQR";
+                    }
+                    else
+                    {
+                        res.url = "sys/index";
+                    }
+                }
+                else
+                {
+                    if ("General".Equals(item.Type))
+                    {
+                        if(url.Contains("MyQR") || url.Contains("Client"))
+                        {
+                            res.url = url;
+                        }
+                        else
+                        {
+                            res.url = "sys/MyQR";
+                        }
+                    }
+                    else
+                    {
+                        res.url = url;
+                    }
+                    
+                }
             }
             return Json(res);
         }

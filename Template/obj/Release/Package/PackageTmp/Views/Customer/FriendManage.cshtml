@@ -1,0 +1,205 @@
+﻿
+@{
+    ViewBag.Title = "FriendManage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Template.Models.CustomerModel
+
+<div class="page-header">
+    <h1>好友列表</h1>
+</div>
+
+<div class="content-wrap">
+    <div class="mainCon padding20">
+        <!--搜索条件 S-->
+        <div class="searchBar clearfix">
+            <div class="fl marginRight20">
+                <input type="text" class="dateInput" placeholder="请选择日期范围" id="test6" value="@Model.search_time" />
+            </div>
+            <div class="fl">
+                <input type="text" class="srhInput marginRight20" placeholder="输入好友姓名" id="search_custom" value="@Model.search_custom" />
+                <input type="button" class="submitBtn" value="搜索" onclick="search()" />
+            </div>
+        </div>
+        <!--搜索条件 E-->
+        <!--操作按钮 S-->
+        <div class="handle">
+            <a href="javascript:;" onclick="removeList()" class="btn btn-danger radius">批量删除</a>
+            <a class="btn btn-primary radius" data-toggle="modal" data-target="#addCursor">添加好友</a>
+        </div>
+        <!--操作按钮 E-->
+        <!--客户列表 S-->
+        <table class="tableList">
+            <tr>
+                <th></th>
+                <th>客户姓名</th>
+                <th>电话</th>
+                <th>所在地区</th>
+                <th>留言内容</th>
+                <th>添加时间</th>
+                <th>删除</th>
+            </tr>
+            @if (Model.list.Count > 0)
+            {
+                foreach (var item in Model.list)
+                {
+                    <tr>
+                        <td><input name="check_id" type="checkbox" id="inlineCheckbox1" value="@item.ID" /></td>
+                        <td>@item.Name</td>
+                        <td>@item.Phone</td>
+                        <td>@item.Location</td>
+                        <td>@item.Content</td>
+                        <td>@item.time</td>
+                        <td><a class="deletIcon" onclick="remove('@item.ID')"><img src="~/Content/assets/images/deletIcon.png" alt="删除"></a></td>
+                    </tr>
+                }
+            }
+        </table>
+        <!--客户列表 E-->
+        <!--分页 S-->
+        <div class="pageAnger">
+            @Html.Raw(Model.PageUI)
+        </div>
+        <!--分页 E-->
+    </div>
+</div>
+
+
+
+<!--添加客户 S-->
+<div class="modal fade" id="addCursor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <input id="target" type="hidden" value="-1" />
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span>添加好友</span>
+                <a class="modal-headerBtn" data-dismiss="modal">×</a>
+            </div>
+            <div class="modal-body">
+                <div class="infoLi">
+                    <span class="infoLiTit">客户姓名</span>
+                    <input id="name" placeholder="" type="text" value="" class="infoLiIpt2" />
+                </div>
+                <div class="infoLi">
+                    <span class="infoLiTit">电话</span>
+                    <input id="phone" placeholder="" type="text" value="" class="infoLiIpt2" />
+                </div>
+                <div class="infoLi">
+                    <span class="infoLiTit">所在地区</span>
+                    <input id="location" placeholder="" type="text" value="" class="infoLiIpt2" />
+                    <input id="owner" type="hidden" value="@Model.loginRealName" />
+                </div>
+                <div class="submitBox2">
+                    <input type="button" value="保存" id="submitBtn" class="submitBtn" onclick="Save()" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--添加客户 E-->
+
+
+@section script{
+    <script type="text/javascript">
+        //保存
+        function Save() {
+            var id = $('#target').val();
+            var name = $('#name').val();
+            var phone = $('#phone').val();
+            var location = $('#location').val();
+            var owner = $('#owner').val();
+            var data = {
+                'id': id,
+                'name': name,
+                'phone': phone,
+                'location': location,
+                'owner': owner
+            };
+            $.post('/Customer/Save', data, res => {
+                if (res.state == 1) {
+                    alert('保存信息成功');
+                    window.location.reload();
+                } else {
+                    alert('保存信息失败');
+                }
+            });
+        }
+        ////显示详细信息
+        //function ShowItem(id, name, phone, location,owner) {
+        //    //修改target的值
+        //    $('#target').val(id);
+        //    $('#name').val(name);
+        //    $('#logo').attr('src', logo);
+        //    $('#info').val(content);
+        //}
+        //删除
+        function remove(id) {
+            var data = {
+                'id': id
+            };
+            $.post('/Customer/Remove', data, res => {
+                if (res.state == 1) {
+                    alert('删除成功');
+                    window.location.reload();
+                } else {
+                    alert('删除失败');
+                }
+            });
+        }
+        //批量删除
+        function removeList() {
+            var list = [];
+            $('input[name="check_id"]').each((index, item) => {
+                var tl = $(item).is(':checked');
+                if (tl) {
+                    var id = $(item).val();
+                    list.push(id);
+                }
+            })
+            if (list.length == 0) {
+                alert('请选择要删除的对象');
+                return;
+            }
+            var data = {
+                'list': list
+            };
+            $.post('/Customer/RemoveMany', data, res => {
+                if (res.state == 1) {
+                    alert('删除成功');
+                    window.location.reload();
+                } else {
+                    alert('删除失败');
+                }
+            });
+        }
+        //搜索
+        function search() {
+            //获取搜索参数
+            var txt = $('#test6').val();
+            var start = txt.length == 0 ? "" : txt.split(' - ')[0];
+            var end = txt.length == 0 ? "" : txt.split(' - ')[1];
+            var owner = '@Model.loginName';
+            var custom = $('#search_custom').val();
+            if (start == "" && end == "" && owner == "" && custom == "") {
+                //清空搜索
+                window.location.href = "/sys/Friend";
+            } else {
+                //请求接口
+                var data = {
+                    'first': start,
+                    'end': end,
+                    'owner': owner,
+                    'custom': custom,
+                    'kind': 'friend'
+                };
+                $.post('/Customer/QueryUrl', data, res => {
+                    if (res.state == 1) {
+                        window.location.href = res.data;
+                    } else {
+                        alert(res.message);
+                    }
+                })
+            }
+        }
+    </script>
+}

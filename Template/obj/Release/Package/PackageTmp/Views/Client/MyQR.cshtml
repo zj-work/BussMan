@@ -1,0 +1,36 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Template.Models.CustomerModel
+
+<div class="page-header">
+    <h1>我的二维码</h1>
+</div>
+
+<div class="content-wrap">
+    <div class="qr-body" id="qrcode"></div>
+</div>
+
+@section script{
+    <script type="text/javascript" src="~/Content/script/jquery.qrcode.js"></script>
+    <script type="text/javascript" src="~/Content/script/utf.js"></script>
+    <script type="text/javascript">
+        //生成二维码并显示
+        function createQRCode() {
+            $('#qrcode').empty();
+            var name = '@Model.loginRealName';
+            var url = 'http://my.cmyyjct.com:90/contact?inviter=' + name;
+            $("#qrcode").qrcode({
+                render: "canvas",    //设置渲染方式，有table和canvas，使用canvas方式渲染性能相对来说比较好
+                text: url,    //扫描二维码后显示的内容,可以直接填一个网址，扫描二维码后自动跳向该链接
+                width: "175",               //二维码的宽度
+                height: "175",              //二维码的高度
+                background: "#ffffff",       //二维码的后景色
+                foreground: "#000000",      //二维码的前景色
+                src: '../Content/image/logo_qrcode.jpg' //二维码中间的图片
+            });
+        }
+        createQRCode();
+    </script>
+}

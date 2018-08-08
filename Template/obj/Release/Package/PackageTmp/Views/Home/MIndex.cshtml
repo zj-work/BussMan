@@ -1,0 +1,225 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model Template.Models.IndexModel
+@section head{
+    <link rel="stylesheet" href="~/Content/css/webuploader.css" />
+}
+
+<div class="page-header">
+    <h1>基本信息</h1>
+</div>
+
+    <div class="content-wrap">
+        <div class="mainCon">
+            <div class="infoLi">
+                <span class="infoLiTit">公司名称</span>
+                <input name="ComName" placeholder="请填写公司名字" type="text" value="@(Model.comModel == null?"":Model.comModel.ComName)" />
+                <input id="com_id" type="hidden" value="@(Model.comModel == null?"":Model.comModel.ID)" />
+            </div>
+            <div class="infoLi">
+                <span class="infoLiTit">banner轮播图</span>
+                <div class="infoPic">
+                    <ul class="bannerImg clearfix">
+                        <li>
+                            <img id="banner_01" src="@(Model.banner_01 == null?"":Model.banner_01)" />
+                            <div class="webuploader-pick picker" onclick="up_click(this)">上传</div>
+                        </li>
+                        <li>
+                            <img id="banner_02" src="@(Model.banner_02 == null?"":Model.banner_02)" />
+                            <div class="webuploader-pick picker" onclick="up_click(this)">上传</div>
+                        </li>
+                        <li>
+                            <img id="banner_03" src="@(Model.banner_03 == null?"":Model.banner_03)" />
+                            <div class="webuploader-pick picker" onclick="up_click(this)">上传</div>
+                        </li>
+                    </ul>
+                    <p class="proposalpP">建议尺寸 1920 * 500 (像素)的图片。大小不超过2M，格式jpg/png/jpeg 如果无法正常显示新上传图片，清空浏览器缓存后访问。</p>
+                </div>
+            </div>
+            <div class="infoLi">
+                <span class="infoLiTit">公司简介</span>
+                <!--编辑器 S-->
+                <div class="txtEdit fl" id="info">
+                    @Html.Raw((Model.comModel == null ? "" : Model.comModel.ComInfo))
+                </div>
+                <textarea id="ComInfo" style="display:none;"></textarea>
+                <!--编辑器 E-->
+            </div>
+            <div class="infoLi">
+                <span class="infoLiTit">公司地址</span>
+                <input name="ComLocation" placeholder="" type="text" value="@(Model.comModel == null?"":Model.comModel.ComLocation)" />
+            </div>
+            <div class="infoLi">
+                <span class="infoLiTit">邮编</span>
+                <input name="PostCode" placeholder="" type="text" value="@(Model.comModel == null?"":Model.comModel.PostCode)" class="infoLiIpt2" />
+            </div>
+            <div class="infoLi">
+                <span class="infoLiTit">联系人</span>
+                <input name="Contact" placeholder="" type="text" value="@(Model.comModel == null?"":Model.comModel.Contact)" class="infoLiIpt2" />
+            </div>
+            <div class="infoLi">
+                <span class="infoLiTit">电话</span>
+                <input name="Tel" placeholder="" type="text" value="@(Model.comModel == null?"":Model.comModel.Tel)" class="infoLiIpt2" />
+            </div>
+            <div class="infoLi">
+                <span class="infoLiTit">手机</span>
+                <input name="Phone" placeholder="" type="text" value="@(Model.comModel == null?"":Model.comModel.Phone)" class="infoLiIpt2" />
+            </div>
+            <div class="infoLi">
+                <span class="infoLiTit">邮箱</span>
+                <input name="Email" placeholder="" type="text" value="@(Model.comModel == null?"":Model.comModel.Email)" class="infoLiIpt2" />
+            </div>
+            <div class="infoLi">
+                <span class="infoLiTit">在线QQ</span>
+                <input name="QQ" placeholder="" type="text" value="@(Model.comModel == null?"":Model.comModel.QQ)" class="infoLiIpt2" />
+            </div>
+            <div class="infoLi">
+                <span class="infoLiTit">微信公众号</span>
+                <div class="infoPic">
+                    <ul class="ewmImg clearfix">
+                        <li>
+                            <img id="Wx" src="@(Model.comModel == null?"":Model.comModel.Wx)" />
+                            <div class="webuploader-pick picker" onclick="up_click(this)">上传</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="infoLi">
+                <span class="infoLiTit">ICP备案信息</span>
+                <input name="ICP" placeholder="" type="text" value="@(Model.comModel == null?"":Model.comModel.ICP)" class="infoLiIpt2" />
+            </div>
+            <div class="infoLi">
+                <span class="infoLiTit">公网安备案信息</span>
+                <input name="Gov" placeholder="" type="text" value="@(Model.comModel == null?"":Model.comModel.Gov)" class="infoLiIpt2" />
+            </div>
+
+            <div class="submitBox">
+                <input type="button" value="保存" class="submitBtn" onclick="saveComInfo()" />
+            </div>
+
+        </div>
+    </div>
+
+
+@section script
+{
+    <script type="text/javascript">
+        var currentUp = {};
+        //上传图片 点击事件
+        function up_click(e) {
+            currentUp = e;
+        }
+    </script>
+    <!--富文本框编辑-->
+    <script type="text/javascript">
+        var E = window.wangEditor;
+        var editor = new E('#info');
+        var $text1 = $('#ComInfo');
+        editor.customConfig.uploadImgServer = '/Util/EditorUpload';
+        editor.customConfig.uploadImgHooks = {
+            customInsert: function (insertImg, result, editor) {
+                if (result.state == 1) {
+                    var url = result.path;
+                    insertImg(url);
+                } else {
+                    alert("插入图片失败");
+                }
+            }
+        }
+        editor.customConfig.onchange = function (html) {
+            $text1.val(html);
+        }
+        editor.create();
+        $text1.val(editor.txt.html());
+    </script>
+    <!--图片上传-->
+    <script type="text/javascript">
+        var uploader = WebUploader.create({
+            auto: true,
+            swf: '../Content/script/Uploader.swf',
+            server: '/Util/Upload',
+            pick: '.picker',
+            resize: false,
+            compress: false,
+            duplicate: true,
+            accept: {
+                title: 'Images',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/*'
+            },
+            disableGlobalDnd: true
+        });
+
+        uploader.on('fileQueued', function (file) {
+
+        });
+
+        uploader.on('uploadSuccess', function (file, res) {
+            //显示图片
+            if (res.state == 1) {
+                var img = $(currentUp).prev('img');
+                $(img).attr('src', res.path);
+            } else {
+                alert("上传图片失败");
+            }
+        });
+
+        uploader.on('uploadError', function (file) {
+        });
+    </script>
+
+    <!--保存公司信息 S-->
+    <script type="text/javascript">
+        function saveComInfo() {
+            var comid = $('#com_id').val();
+            var comName = $('input[name="ComName"]').val();
+            var comInfo = $('#ComInfo').val();
+            var comLocation = $('input[name="ComLocation"]').val();
+            var postcode = $('input[name="PostCode"]').val();
+            var contact = $('input[name="Contact"]').val();
+            var tel = $('input[name="Tel"]').val();
+            var phone = $('input[name="Phone"]').val();
+            var email = $('input[name="Email"]').val();
+            var qq = $('input[name="QQ"]').val();
+            var icp = $('input[name="ICP"]').val();
+            var gov = $('input[name="Gov"]').val();
+            var banner01 = $('#banner_01').attr('src');
+            var banner02 = $('#banner_02').attr('src');
+            var banner03 = $('#banner_03').attr('src');
+            var wx = $('#Wx').attr('src');
+            var model = {
+                'banner_01': banner01,
+                'banner_02': banner02,
+                'banner_03': banner03,
+                'comModel': {
+                    'ID': comid,
+                    'ComName': comName,
+                    'ComInfo': comInfo,
+                    'ComLocation': comLocation,
+                    'PostCode': postcode,
+                    'Contact': contact,
+                    'Phone': phone,
+                    'Tel': tel,
+                    'Email': email,
+                    'QQ': qq,
+                    'Wx': wx,
+                    'ICP': icp,
+                    'Gov': gov
+                }
+            };
+            $.post('/Home/MIndex_Handle', model, function (res) {
+                if (res.state == 1) {
+                    alert(res.message);
+                    window.location.reload();
+                } else {
+                    alert(res.message);
+                }
+            });
+        }
+    </script>
+    <!--保存公司信息 E-->
+}
+
+
+
